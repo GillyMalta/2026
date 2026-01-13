@@ -1,0 +1,52 @@
+/* Basic layout styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* The container for the images */
+.slideshow-container {
+    position: relative;
+    width: 100%; /* Adjust width to fit your desired view size */
+    height: 500px; /* Adjust height to fit your desired view size */
+    overflow: hidden; /* Hide any overflowing parts of the images */
+}
+
+/* Style the images to fill the container */
+.slides img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* Ensures images cover the whole container without stretching */
+    display: none; /* Hide all images by default */
+}
+
+/* Next and previous button styles */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}

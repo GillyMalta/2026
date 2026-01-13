@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap');
+
+body {
+	max-width: 100%;
+	z-index: 99999;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	font-family: Poppins, sans-serif, serif;
+/*	overflow: hidden;*/
+/*	display: flex;*/
+}
+
+#coming_soon {
+	max-width: inherit;
+	height: auto;
+	margin-top: 10px;
+	border-radius: 8px;
+}
+
+#banner {
+	width: 100%;
+	height: 560px;
+	display: inline-block;
+	position: relative;
+	text-align: justify;
+	background: url("../Images/Modena1.jpg");
+	background-size: cover;
+	box-shadow: 0 10px 20px rgba(220, 0, 0, 1);
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 8px;
+	margin-top: 10px;
+	color: #649CBE;
+}
+
+hr {
+    border: none;
+    height: 3px;
+/*    background-color: #DC0000;*/
+    background-color: #2E5F7C;
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
+}
+
+h2 {
+	color: black;
+}
+
+.navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	background-color: #2E5F7C;
+	border-radius: 8px;
+/*
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+*/
+}
+
+.navigation ul {
+	display: flex;
+	gap: 140px;
+	font-family: Poppins, serif, sans-serif;
+	padding-right: 40px;
+	padding-left: 40px;
+	list-style-type: none;
+	font-size: 25px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: black;
+/*	font-style: italic;*/
+}
+
+.navigation a:hover {
+/*	color: #DC0000;*/
+	color: #649CBE;
+/*	color: #7EB23B;*/
+/*	color: black;*/
+	font-size: 30px;
+	align-items: center;
+	text-transform: uppercase;
+	letter-spacing: 15px;
+/*	display: inline-block;*/
+/*	transform: rotate(30deg); */
+/*	transform: skewY(-10deg);*/
+/*	transform-origin: left;*/
+}
+
+.navigation .separator {
+	color: #DC0000;
+/*	color: #649CBE;*/
+/*	color: #2E5F7C;*/
+/*	color: #2E8B56;*/
+	font-size: 26px;
+/*	line-height: 10px;*/
+}
+
+#wife_container {
+	text-align: justify;
+	display: grid;
+	width: 100%;
+	grid-template-columns: 40% 30% 30%;
+	grid-template-rows: 3;
+}
+
+#wife_container a {
+	text-decoration: none;
+	color: black;
+	font-size: 10px;
+	font: italic;
+}
+
+#wife_container img {
+	grid-column: 1;
+	grid-row: 2;
+	width: 98%;
+	height: auto;
+	border-radius: 8px;
+	margin-top: 20px;
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+}
+
+#wife_container h2 {
+	grid-column:  1 / -1;
+/*	align-content: flex-start;*/
+	text-align: left;
+}
+
+#wife_container p {
+	grid-column: 2 / -1;
+	margin-bottom: 0px;
+}
+
+/*
+.about_container img {
+	width: 100%;
+	height: 100px;
+	border-radius: 8px;
+}
+*/
+
+#ferrari_container {
+	display: grid;
+	grid-template-columns: 70% 30%;
+	text-align: justify;
+}
+
+#ferrari_container img {
+	grid-column: 2;
+	grid-row: 2;
+	width: 98%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+	margin-bottom: 20px;
+}
+
+#ferrari_container p {
+	grid-column: 1;
+	grid-row: 2;
+	text-align: justify;
+	padding-right: 10px;
+}
+
+.articles_container {
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-rows: 3;
+	justify-content: center;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	gap: 15px;
+}
+
+.articles_container a {
+	text-decoration: none;
+	color: black;
+	letter-spacing: 10px;
+	font-size: 17px;
+}
+
+.articles_container img {
+	width: 90%;
+	height: auto;
+	border-radius: 8px;
+}
+
+.articles_container img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+}
+
+.articles_container #ferrari_pic {
+	text-transform: capitalize;
+	letter-spacing: 15px;
+	color: #2E5F7C;
+/*	color: #649CBE;*/
+/*	color: #7EB23B;*/
+	font-weight: bold;
+	font-size: 20px;
+/*	border-bottom: #2E5F7C solid;*/
+}
+
+.articles_container #ferrari_engines {
+	text-transform: capitalize;
+	letter-spacing: 10px;
+/*	color: #649CBE;*/
+/*	color: #7EB23B;*/
+	color: #2E5F7C;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.articles_container #museum_location {
+	text-transform: capitalize;
+	letter-spacing: 10px;
+	color: #2E5F7C;
+/*	color: #649CBE;*/
+/*	color: #7EB23B;*/
+	font-weight: bold;
+	font-size: 20px;
+}
+/*
+
+.articles_container #the_man {
+	grid-column: 1;
+	grid-row: 2;
+	text-transform: capitalize;
+	letter-spacing: 10px;
+	color: #2E5F7C;
+	color: #649CBE;
+	color: #7EB23B;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 30px;
+}
+*/
+
+.articles_container #enzo_pic {
+	text-transform: capitalize;
+	letter-spacing: 10px;
+	color: #2E5F7C;
+/*	color: #649CBE;*/
+/*	color: #7EB23B;*/
+	font-weight: bold;
+	font-size: 20px;
+/*	margin-top: 15px;*/
+}
+
+#content_container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#content_container iframe {
+	width: 90%;
+	height: auto;
+	border-radius: 8px;
+/*	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);*/
+}
+
+#content_container iframe:hover {
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+	border-radius: 8px;
+}
+
+#content_container h2 {
+	text-align: center;
+}
+
+#content_container #youtube #video {
+	grid-column: 1;
+	grid-row: 2;
+	margin-right: 5px;
+/*	margin-left: 5px;*/
+	text-align: center;
+}
+
+#content_container #google_map #map {
+	grid-column: 2;
+	grid-row: 2;
+	margin-left: 5px;
+/*	margin-right: 5px;*/
+	text-align: center;
+}
+
+#rosso_Ferrari {
+	width: 100%;
+	height: 300px;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../Images/Ferrari9.jpg");
+	/*	background: url("../Images/Ferrari9.jpg");*/
+	background-size: cover;
+/*	box-shadow: 0 10px 20px rgba(220, 0, 0, 1);*/
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 8px;
+	text-align: justify;
+	display: inline-block;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#rosso_Ferrari p {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+#rosso_Ferrari h2 {
+	color: #DC0000;
+}
+
+
+.contact_container {
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	grid-template-rows: 6;
+	height: 315px;
+}
+
+/*
+body hr {
+	color: seagreen;
+	line-height: 10px;
+}
+*/
+
+#ferrari_logo img {
+    width: 45%;
+    margin-top: 420px;
+    display: inline-block;
+    position: absolute;
+/*    margin-left: 45px;*/
+	border-radius: 8px;
+	box-shadow: 0 10px 20px rgba(46, 95, 124, 1);
+}
+
+#form_name {
+	grid-column: 2;
+	grid-row: 1;
+	text-align: right;
+}
+
+#field_name {
+	grid-column: 3;
+	grid-row: 1;
+	text-align: center;
+}
+
+#field_name:active {
+	border: none;
+}
+
+/*
+
+#field_name label {
+	vertical-align: sub;
+}
+*/
+
+#field_name input {
+	width: 90%;
+	height: 20px;
+	font-size: 15px;
+	font-family: Poppins;
+	color: black;
+	text-align: left;
+	border-top: none;
+	border-right: none;
+	border-bottom: solid #2E5F7C;
+	border-left: none;
+/*	border-radius: 10px;*/
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	outline: none;
+}
+
+#form_surname {
+	grid-column: 2;
+	grid-row: 2;
+	text-align: right;
+}
+
+#field_surname {
+	grid-column: 3;
+	grid-row: 2;
+	text-align: center;
+}
+
+#field_surname input {
+	width: 90%;
+	height: 20px;
+	font-size: 15px;
+	font-family: Poppins;
+	color: black;
+	text-align: left;
+	border-top: none;
+	border-right: none;
+	border-bottom: solid #2E5F7C;
+	border-left: none;
+/*	border-radius: 10px;*/
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	outline: none;
+}
+
+#form_email {
+	grid-column: 2;
+	grid-row: 3;
+	text-align: right;
+}
+
+#field_email {
+	grid-column: 3;
+	grid-row: 3;
+	text-align: center;
+}
+
+#field_email input {
+	width: 90%;
+	height: 20px;
+	font-size: 15px;
+	font-family: Poppins;
+	color: black;
+	text-align: left;
+	border-top: none;
+	border-right: none;
+	border-bottom: solid #2E5F7C;
+	border-left: none;
+/*	border-radius: 10px;*/
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	outline: none;
+}
+
+#form_phone {
+	grid-column: 2;
+	grid-row: 4;
+	text-align-last: right;
+}
+
+#field_phone {
+	grid-column: 3;
+	grid-row: 4;
+	text-align: center;
+}
+
+#field_phone input {
+	width: 90%;
+	height: 20px;
+	font-size: 15px;
+	font-family: Poppins;
+	color: black;
+	text-align: left;
+	border-top: none;
+	border-right: none;
+	border-bottom: solid #2E5F7C;
+	border-left: none;
+/*	border-radius: 10px;*/
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	outline: none;
+}
+
+#form_title {
+	grid-column: 2;
+	grid-row: 5;
+	text-align: right;
+}
+
+#field_title {
+	grid-column: 3;
+	grid-row: 5;
+	text-align: center;
+}
+
+#field_title select#reason {
+	width: 90%;
+	font-size: 10px;
+	border-top: none;
+	border-right: none;
+	border-bottom: solid #2E5F7C;
+	border-left: none;
+/*	border-radius: 10px;*/
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	color: black;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	outline: none;
+}
+
+button {
+	grid-column: 3;
+	grid-row: 6;
+/*	width: 90%;*/
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	color: black;
+	text-align: center;
+	width: 100%;
+	font-family: Poppins;
+/*	font-size: 20px;*/
+	border-top: none;
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
+/*	border-radius: 10px;*/
+/*	padding-bottom: 10px;*/
+	margin-bottom: 10px;	
+}
+
+button:hover {
+/*	font-size: 20px;*/
+	text-transform: uppercase;
+	letter-spacing: 10px;
+/*	color: #2E5F7C;*/
+}
+
+::placeholder {
+	font-size: 10px;
+	text-align: left;
+	background-color: #649CBE;
+/*	background-color: #2E8B56;*/
+	color: black;
+}
+
+footer {
+	display: grid;
+	grid-template-columns: 60% 40%;
+	font-size: 13px;
+/*	width: 99%;*/
+	height: 100px;
+/*	background-color: #7EB23B;*/
+	background-color: #2E5F7C;
+/*	background-color: #36454F;*/
+	padding: 5px;
+/*	overflow: hidden;*/
+	border-radius: 8px;
+}
+
+#disclaimer {
+	grid-column: 1;
+}
+
+#social_icons {
+/*	margin-top: 0px;*/
+/*	margin-bottom: 24px;*/
+/*	margin-top: 17px;*/
+    text-align: right;
+}
+
+/*
+#social_icons:hover {
+	transform: scale(1.05);
+}
+*/
+
+#social_icons h4 {
+/*	margin-top: 0px;*/
+/*	padding-bottom: 17px;*/
+	padding-top: 34px;
+	margin: 0;
+}

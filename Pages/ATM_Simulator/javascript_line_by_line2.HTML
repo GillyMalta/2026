@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <link rel="stylesheet" href="/CSS/main.CSS">
+</head>
+<body>
+
+  <h1>JavaScript Login Function - Line-by-Line Explanation</h1>
+    
+
+<pre><code>
+// Function to handle login logic
+function login() {
+    // Fetch login credentials from the JSON file
+    fetch('login.json')
+        .then(response => response.json()) // Parse the JSON into JS objects
+        .then(data => {
+            const loginArray = [];
+            data.forEach(entry => loginArray.push(entry)); // optional but clear
+
+            // Grab user input from HTML input fields
+            const inputUser = document.getElementById("username").value;
+            const inputPassword = document.getElementById("password").value;
+
+            // Check for valid username/password pair
+            const isValid = loginArray.some(entry =>
+                entry.user === inputUser && entry.password === inputPassword
+            );
+
+            if (isValid) {
+                currentuser = inputUser; // Save who logged in
+                document.getElementById("welcome").innerHTML = "Login successful. Welcome, " + inputUser;
+                document.getElementById("working_area").innerHTML = "What would you like to do today " + inputUser + "?";
+                document.getElementById("login_area").style.display = "none"; // Hide login area
+                console.log('Login successful!');
+                console.log(loginArray);
+            } else {
+                document.getElementById("welcome").innerHTML = "LOGIN UNSUCCESSFUL! Please try again!";
+                console.log('Invalid credentials.');
+            }
+
+            // Clear the input fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+}
+</code></pre>
+
+  <h2>Function Declaration</h2>
+  <p><code>function login() { ... }</code></p>
+  <ul>
+    <li>This defines a function named <code>login</code> that will be executed when called, typically after clicking a "Login" button.</li>
+  </ul>
+
+  <h2>Fetching JSON File</h2>
+  <p><code>fetch('login.json')</code></p>
+  <ul>
+    <li><strong>fetch</strong> is a built-in browser function used to make HTTP requests.</li>
+    <li>Here, it's fetching a local file named <code>login.json</code>, which contains user credentials.</li>
+  </ul>
+
+  <h2>Handling the Response</h2>
+  <p><code>.then(response => response.json())</code></p>
+  <ul>
+    <li><code>.then()</code> is a method used with Promises to handle the result of an asynchronous operation.</li>
+    <li><code>response</code> is the object returned by <code>fetch</code>, and <code>response.json()</code> parses the response body into JavaScript objects.</li>
+  </ul>
+
+  <p><code>.then(data => { ... })</code></p>
+  <ul>
+    <li>Once parsed, <code>data</code> holds the array of user credential objects.</li>
+  </ul>
+
+  <h2>Optional Array Cloning</h2>
+  <p><code>data.forEach(entry => loginArray.push(entry));</code></p>
+  <ul>
+    <li>This loops through each <code>entry</code> in <code>data</code> and pushes it into a new array called <code>loginArray</code>.</li>
+    <li>This step is optional; you could use <code>data</code> directly.</li>
+  </ul>
+
+  <h2>Reading User Input</h2>
+  <p>
+    <code>document.getElementById("username").value</code><br />
+    <code>document.getElementById("password").value</code>
+  </p>
+  <ul>
+    <li><code>document.getElementById()</code> accesses an HTML element by its <code>id</code>.</li>
+    <li><code>.value</code> gets the current value of an input field.</li>
+  </ul>
+
+  <h2>Credential Validation</h2>
+  <p>
+    <code>loginArray.some(entry => entry.user === inputUser && entry.password === inputPassword)</code>
+  </p>
+  <ul>
+    <li><code>.some()</code> checks if <strong>any</strong> element in the array matches the condition.</li>
+    <li>It returns <code>true</code> if at least one match is found (valid login).</li>
+    <li><code>entry.user === inputUser</code> compares stored username to input.</li>
+    <li><code>entry.password === inputPassword</code> compares stored password to input.</li>
+  </ul>
+
+  <h2>If Login is Successful</h2>
+  <ul>
+    <li><code>currentuser = inputUser;</code> stores the current logged-in user's name.</li>
+    <li><code>innerHTML</code> sets the text or HTML inside an element.</li>
+    <li><code>style.display = "none"</code> hides the login section.</li>
+    <li><code>console.log()</code> outputs messages to the browser console for debugging.</li>
+  </ul>
+
+  <h2>If Login Fails</h2>
+  <ul>
+    <li>Displays a failure message in the <code>welcome</code> element.</li>
+    <li>Logs a message in the console indicating invalid credentials.</li>
+  </ul>
+
+  <h2>Clearing Input Fields</h2>
+  <p>
+    <code>document.getElementById("username").value = "";</code><br />
+    <code>document.getElementById("password").value = "";</code>
+  </p>
+  <ul>
+    <li>These lines reset the input fields after each login attempt, successful or not.</li>
+  </ul>
+
+  <h2>Error Handling</h2>
+  <p><code>.catch(error => { console.error('Error loading JSON:', error); })</code></p>
+  <ul>
+    <li><code>.catch()</code> handles any errors that occur in the <code>fetch</code> or <code>.then()</code> chain.</li>
+    <li><code>console.error()</code> prints the error message in the console with a red label.</li>
+  </ul>
+
+  <hr>
+
+<pre><code>
+
+// Function to check and display balance
+function balance() {
+    // Make sure user is logged in
+    if (!currentuser) {
+        document.getElementById("balance").innerHTML = "Balance";
+        return;
+    }
+
+    // Fetch balance data from JSON
+    fetch('balances.json')
+        .then(response => response.json())
+        .then(data => {
+            balances = data; // store all balances globally
+
+            // Find the balance entry for the logged in user
+            const userBalance = balances.find(entry => entry.user === currentuser);
+
+            if (userBalance) {
+                currentbalance = Number(userBalance.balance); // Convert string to number
+                document.getElementById("working_area").innerHTML = "Your balance is: €" + userBalance.balance;
+                console.log("Balance:", userBalance.balance);
+            } else {
+                document.getElementById("balance").innerHTML = "Balance not found for user.";
+            }
+        })
+        .catch(error => {
+            console.error('Error loading balances:', error);
+        });
+}
+</code></pre>
+
+ <h2>Function Declaration</h2>
+  <p><code>function balance() { ... }</code></p>
+  <ul>
+    <li>This defines a function named <code>balance</code> which is responsible for checking and displaying the user's balance.</li>
+  </ul>
+
+  <h2>User Login Check</h2>
+  <p><code>if (!currentuser) { ... }</code></p>
+  <ul>
+    <li>This checks if the variable <code>currentuser</code> is not set (i.e. no one is logged in).</li>
+    <li>If not logged in, it sets the balance display area to a default label and exits the function early with <code>return;</code>.</li>
+  </ul>
+
+  <h2>Fetching JSON Balance File</h2>
+  <p><code>fetch('balances.json')</code></p>
+  <ul>
+    <li>This line sends a request to load the <code>balances.json</code> file, which contains user balance data.</li>
+  </ul>
+
+  <h2>Parsing the JSON</h2>
+  <p><code>.then(response => response.json())</code></p>
+  <ul>
+    <li><code>.then()</code> handles the asynchronous response from <code>fetch</code>.</li>
+    <li><code>response.json()</code> converts the raw JSON into a JavaScript array of objects.</li>
+  </ul>
+
+  <h2>Storing the Balances</h2>
+  <p><code>balances = data;</code></p>
+  <ul>
+    <li>This stores the entire list of balance entries into a global variable <code>balances</code> (assumes it's declared globally elsewhere).</li>
+  </ul>
+
+  <h2>Finding the Current User's Balance</h2>
+  <p><code>const userBalance = balances.find(entry => entry.user === currentuser);</code></p>
+  <ul>
+    <li><code>.find()</code> is used to search for the first item in the <code>balances</code> array that matches the logged-in user.</li>
+    <li>If a match is found, it's stored in <code>userBalance</code>.</li>
+  </ul>
+
+  <h2>If Balance is Found</h2>
+  <ul>
+    <li><code>currentbalance = Number(userBalance.balance);</code> converts the balance from string (if it was stored that way) to a number for future calculations.</li>
+    <li><code>document.getElementById("working_area").innerHTML = "Your balance is: €" + userBalance.balance;</code> shows the user's balance in the working area.</li>
+    <li><code>console.log("Balance:", userBalance.balance);</code> logs the balance to the developer console.</li>
+  </ul>
+
+  <h2>If Balance is Not Found</h2>
+  <p><code>document.getElementById("balance").innerHTML = "Balance not found for user.";</code></p>
+  <ul>
+    <li>If no matching user is found in the balance list, it shows an error message in the balance display area.</li>
+  </ul>
+
+  <h2>Error Handling</h2>
+  <p><code>.catch(error => { console.error('Error loading balances:', error); });</code></p>
+  <ul>
+    <li><code>.catch()</code> handles any error during the fetch or parsing process.</li>
+    <li><code>console.error()</code> logs the error message in the browser's console for debugging purposes.</li>
+  </ul>
+
+  <hr>
+
+<pre><code>
+// Function to handle deposits
+function deposit() {
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const new_deposit = Number(prompt("How much would you like to deposit?")); // Ask user
+
+    if (isNaN(new_deposit) || new_deposit <= 0) {
+        alert("Invalid deposit amount!");
+        return;
+    }
+
+    currentbalance += new_deposit;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Deposit successful!
+ Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance; // Update in-memory value
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+</code></pre>
+
+  <h2>Function Declaration</h2>
+  <p><code>function withdraw() { ... }</code></p>
+  <ul>
+    <li>This defines a function named <code>withdraw</code> that handles withdrawing money from the user's balance.</li>
+  </ul>
+
+  <h2>User Login Check</h2>
+  <p><code>if (!currentuser) { alert("Please log in to withdraw money."); return; }</code></p>
+  <ul>
+    <li>Checks if the user is logged in by verifying that <code>currentuser</code> exists.</li>
+    <li>If not logged in, shows an alert and exits the function with <code>return;</code>.</li>
+  </ul>
+
+  <h2>Getting User Input</h2>
+  <p><code>const amount = Number(document.getElementById("withdraw_amount").value);</code></p>
+  <ul>
+    <li><code>document.getElementById("withdraw_amount").value</code> gets the value from the input field where the user enters the withdrawal amount.</li>
+    <li><code>Number(...)</code> converts the string input into a number for calculation.</li>
+  </ul>
+
+  <h2>Input Validation</h2>
+  <p><code>if (isNaN(amount) || amount <= 0) { alert(...); return; }</code></p>
+  <ul>
+    <li><code>isNaN(amount)</code> checks if the input is not a valid number.</li>
+    <li><code>amount <= 0</code> ensures the withdrawal amount is greater than zero.</li>
+    <li>If the input is invalid, an alert is shown and the function exits early.</li>
+  </ul>
+
+  <h2>Balance Check</h2>
+  <p><code>if (amount > currentbalance) { alert("Insufficient funds."); return; }</code></p>
+  <ul>
+    <li>This compares the withdrawal amount to the user's current balance.</li>
+    <li>If the amount exceeds the balance, an alert is shown and the function exits.</li>
+  </ul>
+
+  <h2>Withdraw and Update Balance</h2>
+  <p><code>currentbalance -= amount;</code></p>
+  <ul>
+    <li>Subtracts the withdrawal amount from <code>currentbalance</code>.</li>
+    <li>This updates the stored balance in memory (but not in file/database yet).</li>
+  </ul>
+
+  <h2>Display Updated Balance</h2>
+  <p><code>document.getElementById("working_area").innerHTML = "Withdrawal successful. New balance: €" + currentbalance;</code></p>
+  <ul>
+    <li>Updates the HTML to show a success message and the new balance to the user.</li>
+  </ul>
+
+  <h2>Console Log</h2>
+  <p><code>console.log("Withdrawn:", amount);</code></p>
+  <ul>
+    <li>Prints the amount withdrawn in the developer console for tracking/debugging.</li>
+  </ul>
+
+  <hr>
+
+<pre><code>
+// Function to handle withdrawals
+function withdraw() {
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const withdrawalAmount = Number(prompt("How much would you like to withdraw?"));
+
+    if (isNaN(withdrawalAmount) || withdrawalAmount <= 0) {
+        alert("Invalid withdrawal amount!");
+        return;
+    }
+
+    if (withdrawalAmount > currentbalance) {
+        alert("Insufficient funds for this withdrawal!");
+        return;
+    }
+
+    currentbalance -= withdrawalAmount;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Withdrawal successful!
+ Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance; // Save new balance
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+</code></pre>
+
+  <h2>Function Declaration</h2>
+  <p><code>function withdraw() { ... }</code></p>
+  <ul>
+    <li>Defines a function called <code>withdraw</code> that handles balance withdrawal and updates the user's record.</li>
+  </ul>
+
+  <h2>User Login Check</h2>
+  <p><code>if (!currentuser) { ... }</code></p>
+  <ul>
+    <li>Checks if a user is currently logged in by verifying the <code>currentuser</code> variable.</li>
+    <li>If no user is logged in, displays a message in the <code>working_area</code> and stops further execution with <code>return;</code>.</li>
+  </ul>
+
+  <h2>Balance Availability Check</h2>
+  <p><code>if (currentbalance === null) { ... }</code></p>
+  <ul>
+    <li>Checks whether the balance has been loaded yet.</li>
+    <li>If not, informs the user to check their balance first before withdrawing.</li>
+  </ul>
+
+  <h2>Getting User Input via Prompt</h2>
+  <p><code>const withdrawalAmount = Number(prompt("How much would you like to withdraw?"));</code></p>
+  <ul>
+    <li><code>prompt(...)</code> opens a dialog asking the user for the withdrawal amount.</li>
+    <li><code>Number(...)</code> converts the input string into a numeric value.</li>
+  </ul>
+
+  <h2>Input Validation</h2>
+  <p><code>if (isNaN(withdrawalAmount) || withdrawalAmount <= 0) { ... }</code></p>
+  <ul>
+    <li><code>isNaN(...)</code> checks if the input is not a valid number.</li>
+    <li><code>withdrawalAmount <= 0</code> ensures the number is positive and greater than zero.</li>
+    <li>If the input is invalid, an alert is shown and the function exits.</li>
+  </ul>
+
+  <h2>Balance Check</h2>
+  <p><code>if (withdrawalAmount > currentbalance) { ... }</code></p>
+  <ul>
+    <li>Checks if the user is trying to withdraw more than they have.</li>
+    <li>If yes, shows an alert and exits.</li>
+  </ul>
+
+  <h2>Updating Balance</h2>
+  <p><code>currentbalance -= withdrawalAmount;</code></p>
+  <ul>
+    <li>Subtracts the withdrawal amount from the user's current balance.</li>
+  </ul>
+
+  <h2>Logging and Displaying New Balance</h2>
+  <p>
+    <code>console.log("Your current balance is €" + currentbalance);</code><br/>
+    <code>document.getElementById("working_area").innerHTML = "Withdrawal successful! Your updated balance is €" + currentbalance;</code>
+  </p>
+  <ul>
+    <li>Logs the updated balance to the console.</li>
+    <li>Displays a success message and the updated balance in the <code>working_area</code> on the page.</li>
+  </ul>
+
+  <h2>Finding the User's Index in Balance Data</h2>
+  <p><code>const userIndex = balances.findIndex(entry => entry.user === currentuser);</code></p>
+  <ul>
+    <li><code>findIndex(...)</code> searches the <code>balances</code> array for the logged-in user and returns their index.</li>
+    <li>If the user is found, their index is stored in <code>userIndex</code>.</li>
+  </ul>
+
+  <h2>Saving Updated Balance</h2>
+  <p><code>if (userIndex !== -1) { balances[userIndex].balance = currentbalance; }</code></p>
+  <ul>
+    <li>If the user exists in the <code>balances</code> array, their <code>balance</code> field is updated with the new value.</li>
+  </ul>
+
+  <h2>Error Handling for Missing User</h2>
+  <p><code>else { alert("User not found in balances."); }</code></p>
+  <ul>
+    <li>If the user is not found in the balance data, an alert informs that something went wrong.</li>
+  </ul>
+<hr>
+
+<pre><code>
+
+// Function to create a downloadable JSON file with updated balances
+function saveUpdatedBalances(balances) {
+    const dataStr = JSON.stringify(balances, null, 2); // Convert to JSON string with indentation
+    const blob = new Blob([dataStr], { type: "application/json" }); // Create file-like blob
+    const url = URL.createObjectURL(blob); // Generate download link
+
+    const a = document.createElement("a"); // Create invisible anchor tag
+    a.href = url;
+    a.download = "balances.json"; // Suggested file name
+    a.click(); // Auto-click to download
+
+    URL.revokeObjectURL(url); // Free up memory
+}
+
+</code></pre>
+
+  <h2>Function Declaration</h2>
+  <p><code>function saveUpdatedBalances(balances) { ... }</code></p>
+  <ul>
+    <li>Defines a function named <code>saveUpdatedBalances</code> that creates and triggers a download of a JSON file containing updated balance data.</li>
+    <li><code>balances</code> is the input parameter, expected to be an array of user balance objects.</li>
+  </ul>
+
+  <h2>Convert JavaScript Object to JSON String</h2>
+  <p><code>const dataStr = JSON.stringify(balances, null, 2);</code></p>
+  <ul>
+    <li><code>JSON.stringify(...)</code> converts the JavaScript object/array into a JSON-formatted string.</li>
+    <li>The <code>null</code> parameter means no custom replacer is used.</li>
+    <li>The <code>2</code> adds indentation for readability (pretty-print).</li>
+  </ul>
+
+  <h2>Create a Blob Object</h2>
+  <p><code>const blob = new Blob([dataStr], { type: "application/json" });</code></p>
+  <ul>
+    <li><code>Blob</code> is a file-like object of raw data.</li>
+    <li>This creates a new blob containing the JSON string as plain text, with MIME type <code>application/json</code>.</li>
+  </ul>
+
+  <h2>Generate a Temporary URL</h2>
+  <p><code>const url = URL.createObjectURL(blob);</code></p>
+  <ul>
+    <li><code>URL.createObjectURL(...)</code> creates a temporary URL for the blob object in the browser’s memory.</li>
+    <li>This URL allows the blob to be accessed as if it were a real file on a server.</li>
+  </ul>
+
+  <h2>Create a Hidden Anchor Element</h2>
+  <p><code>const a = document.createElement("a");</code></p>
+  <ul>
+    <li>Creates an invisible <code>&lt;a&gt;</code> element (anchor tag) using <code>document.createElement</code>.</li>
+    <li>This will be used to trigger the file download.</li>
+  </ul>
+
+  <h2>Set Download Attributes</h2>
+  <p>
+    <code>a.href = url;</code><br/>
+    <code>a.download = "balances.json";</code>
+  </p>
+  <ul>
+    <li><code>a.href</code> is set to the temporary blob URL created earlier.</li>
+    <li><code>a.download</code> suggests the filename to use when saving the file.</li>
+  </ul>
+
+  <h2>Trigger File Download</h2>
+  <p><code>a.click();</code></p>
+  <ul>
+    <li>Simulates a click on the anchor element, which triggers the download of the JSON file.</li>
+    <li>The browser prompts the user to save the file or downloads it automatically, depending on settings.</li>
+  </ul>
+
+  <h2>Clean Up the Temporary URL</h2>
+  <p><code>URL.revokeObjectURL(url);</code></p>
+  <ul>
+    <li>Releases the temporary blob URL from memory once it’s no longer needed.</li>
+    <li>This is good practice to avoid memory leaks in the browser.</li>
+  </ul>
+
+  <hr>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine V2.0</title>
+    <link rel="stylesheet" href="./Assets/CSS/slots2.css">
+</head>
+<body>
+
+<header>
+        <a href="./Pages/HTML_Code.html" target="_blank">HTML Code</a>
+        <a href="./Pages/CSS_Code.html" target="_blank">CSS Code</a>
+        <a href="./Pages/JAVASCRIPT_code.html" target="_blank">Javascript Code</a>
+</header>
+
+<main>
+
+<h2>Counting <span class="redBlack"> 10</span>'s per slot...</h2>
+
+<table class="tables" border="1" cellpadding="8" cellspacing="0">
+
+    <thead>
+
+        <th>Playcount</th>
+
+        <th>Slot 1</th>
+        <th>Slot 2</th>
+        <th>Slot 3</th>
+
+        <th>Of which were Singles</th>
+        <th>Of which were Doubles</th>
+        <th>Of which were Trebles</th>
+    </thead>
+
+    <tr>
+
+        <td id="roundCount"></td>
+
+        <td id="firstSlot">0</td>
+        <td id="secondSlot">0</td>
+        <td id="thirdSlot">0</td>
+        <td id="tableTotals">0</td>
+
+        <td id="twoTens">0</td>
+        <td id="threeTens">0</td>
+    </tr>
+
+</table>
+
+<!-- <h2 id="gameCredits"></h2> -->
+<!-- <h2 id="roundCount"></h2> -->
+
+<hr>
+
+<div id="three_Columns">
+
+    <div class="column1">
+        <p>Slot 1</p>
+            <div id="slot1">
+                LOCKED!
+            </div>
+    </div>
+
+    <div class="column2">
+        <p>Slot 2</p>
+            <div id="slot2">
+                LOCKED!
+            </div>
+    </div>
+
+    <div class="column3">
+        <p>Slot 3</p>
+            <div id="slot3">
+                LOCKED!
+            </div>
+    </div>
+
+    <!-- <button class="blink" id="spinIt" onclick="spinner()" data-hover="Spinning!">Spin</button>
+
+    <button class="blink" id="cashOut" onclick="cashedOut()">Cash Out</button>
+ -->
+</div>
+
+<hr>
+
+<div id="buttonsContainer">
+
+    <button class="blink" id="spinIt" onclick="spinner()" data-hover="Spinning!">Spin</button>
+
+    <!-- <button class="hidden"></button> -->
+
+    <div class="credits">
+        <!-- <h2>Credits Available:</h2> -->
+        <h3>Credits: </h3>
+        <h2 id="gameCredits"></h2>
+    </div>
+
+    <button class="blink" id="cashOut" onclick="cashedOut()">Cash Out</button>
+
+</div>
+
+
+<hr>
+<h3>There are very few rules in the game...</h3>
+
+<p>
+    <span class="redBold">START </span> by clicking the <span class="blueBold">SPIN </span> button and Javascript will randomise your credits for a maximum of <span class="gold">100 credits </span>.
+    <br>Simultaneously, Javascript will randomise 3 numbers, between <span class="redBold">1 and 10 </span>
+    for each slot. 
+    <br>
+    <h3>Scoring</h3>
+
+    <ul>
+
+        <li>    
+            Numbers between 1 and 9 and worthless however, if you land a <span class="redBlack"> 10</span> in any slot, you will win <span class="redBold">1 credit.</span>
+        </li>
+
+        <li>
+            Land <span class="redBold">a pair of </span> <span class="redBlack">10</span>'s' in either of the 3 slots, and you will win <span class="redBold"> 10 credits. </span>
+        </li>
+
+        <li>
+            Land <span class="redBold">treble </span> <span class="redBlack">10</span> 's and you will win <span class="gold">100 CREDITS!!</span>
+        </li>
+    </ul>
+
+    Don't worry about counting <span class="redBlack"> 10 </span>'s. The table above is keeping track for you!
+    <br>You also have the option of cashing out... just click the <span class="blueBold"> CASH OUT </span> button to retrieve the remaining credits.
+    <br>Once you burn up all your credits, game will stop, reset and will start over with a new credit limit. 
+    <br>If, at any time, you want to restart the game, simply refresh your browser.
+    <br><br>Oh and play responsibly, will ya??!!
+</p>
+
+<hr>
+
+&copy; Gilbert Sammut | December 2025
+
+<dialog id="gameModal">
+    <p id="modalText">Out of credits! 
+        <br>
+        Game Over!
+        <br>
+        Resetting... Please wait
+    </p>
+</dialog>
+
+<dialog id="cashingOut">
+    <p>Cashing Out</p>
+    <p>Total Winnings :</p>
+    <div id="totalWinnings"></div>
+    <p>Game resetting...</p>
+</dialog>
+
+
+<script src="./Scripts/slots2.js"></script>
+</main>    
+</body>
+</html>

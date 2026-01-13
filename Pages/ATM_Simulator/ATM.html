@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="EN">
+<head>
+<meta charset="utf-8">
+<title>ATM Simulator</title>
+<link href="ATM.css" rel="stylesheet" type="text/css">
+</head>
+<header>
+<img src="/Assets/Images/LPPP_to_use.jpg" alt="Bank Logo" title="Bank Logo">
+<!-- <img src="../ATM/LP3B Logo.png" alt="Bank Logo" title="Bank Logo"> -->
+
+<h3 id="dateToday"></h3>	
+<br>	
+</header>
+	
+<body>
+<form id="login_area">
+    
+    <label for="user">Username: 
+    <input type="text" required="required" id="username" name="user" class="logins"></label>
+<br>
+	
+    <label for="pass"><br>Password: 
+    <input type="password" required="required" id="password" name="pass" class="logins"></label>
+
+<br><br>	
+
+<button id="send_it" onclick="login()" type="submit">Login</button>	
+</form>	
+<br>	
+
+<div id="welcome"></div>
+<br>	
+<div id="working_area">
+<h3 id="withdraw_area"></h3>	
+<h3 id="deposit_area"></h3>	
+<h3 id="balance_area"></h3>	
+<h3 id="transfer_area"></h3>	
+	
+<div id="toDo" hidden>What would you like to do?</div>
+</div>
+
+<button id="withdraw" onclick="withdraw()">Withdraw</button>	
+<button id="deposit" onclick="deposit()">Deposit</button>	
+<button id="balance" onclick="balance()">Balance</button>	
+<button id="transfer" onclick="transfer()" >Transfer</button>	
+<button id="logout" onclick="logoff()">Logout</button>	
+	
+<script type="text/javascript" src="newATM_2.JS"></script>
+
+<br><br>
+<footer> &copy; Gilbert Sammut(2025). LPPP Bank, Lippu Pillu Pullu Pluppu Bank and it's logos are a fictitious bank I invented. </footer>	
+</body>
+</html>

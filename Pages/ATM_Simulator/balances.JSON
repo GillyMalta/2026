@@ -1,0 +1,14 @@
+[
+  {
+    "user": "first",
+    "balance": 4000
+  },
+  {
+    "user": "second",
+    "balance": "2000"
+  },
+  {
+    "user": "third",
+    "balance": "3000"
+  }
+]

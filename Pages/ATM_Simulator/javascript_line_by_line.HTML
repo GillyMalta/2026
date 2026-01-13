@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>The ATM Simulator - Breakdown</title>
+    <link rel="stylesheet" href="/CSS/main.CSS">
+</head>
+
+<body>
+
+
+    <!-- ATM Simulator JavaScript Code Explanation -->
+
+<div id="js-explanation">
+
+  <h2>ATM Simulator: JavaScript Code Breakdown</h2>
+
+  <h3>1. Prevent Default Form Submission</h3>
+  <p>
+    <code>e.preventDefault();</code> stops the page from refreshing when a button inside a form is clicked. Instead, you handle login manually using JavaScript.
+  </p>
+
+  <h3>2. Global Variables</h3>
+  <ul>
+    <li><strong>currentuser</strong>: Stores the currently logged-in username.</li>
+    <li><strong>balances</strong>: Holds all user balance entries from balances.json.</li>
+    <li><strong>currentbalance</strong>: The balance of the logged-in user.</li>
+  </ul>
+
+  <h3>3. <code>login()</code> Function</h3>
+  <p>
+    This function fetches <code>login.json</code> and checks if the entered username and password match any entry. If yes, the user is logged in and a welcome message is shown.
+  </p>
+  <ul>
+    <li><code>fetch()</code> loads the JSON file containing user data.</li>
+    <li><code>some()</code> checks if any user matches both username and password.</li>
+    <li>If login is valid, <code>currentuser</code> is set and UI messages are updated.</li>
+  </ul>
+
+  <h3>4. <code>balance()</code> Function</h3>
+  <p>
+    Loads the user’s balance from <code>balances.json</code> after checking that the user is logged in.
+  </p>
+  <ul>
+    <li><code>find()</code> gets the matching balance object from the JSON data.</li>
+    <li><code>currentbalance</code> is set to this value for further use in deposit/withdraw.</li>
+  </ul>
+
+  <h3>5. <code>deposit()</code> Function</h3>
+  <p>
+    Prompts the user to enter a deposit amount, adds it to <code>currentbalance</code>, and updates the in-memory <code>balances</code> array.
+  </p>
+  <ul>
+    <li>Rejects non-numeric or negative amounts.</li>
+    <li>Updates both local variable and the stored balance for the user.</li>
+  </ul>
+
+  <h3>6. <code>withdraw()</code> Function</h3>
+  <p>
+    Allows the user to withdraw funds after checking they are logged in and have sufficient funds.
+  </p>
+  <ul>
+    <li>Similar input validation as deposit.</li>
+    <li>Prevents overdraft by comparing against <code>currentbalance</code>.</li>
+  </ul>
+
+  <h3>7. <code>saveUpdatedBalances()</code> Function</h3>
+  <p>
+    Simulates saving updated balances by creating and triggering a download of a new <code>balances.json</code> file.
+  </p>
+  <ul>
+    <li><code>JSON.stringify()</code> converts array into a formatted JSON string.</li>
+    <li>Blob and <code>URL.createObjectURL()</code> are used to generate a downloadable file.</li>
+  </ul>
+
+  <h3>8. <code>transfer()</code> Function (Placeholder)</h3>
+  <p>
+    This is a placeholder for a future feature. Right now, it just shows a message.
+  </p>
+
+  <h3>9. <code>logoff()</code> Function</h3>
+  <p>
+    Alerts the user, saves their balance, and reloads the page to simulate logging out.
+  </p>
+  <ul>
+    <li><code>alert()</code> is used for confirmation (could be improved with <code>confirm()</code>).</li>
+    <li>Calls <code>saveUpdatedBalances()</code> before <code>location.reload()</code>.</li>
+  </ul>
+
+  <h3>Summary</h3>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>login()</code></td>
+        <td>Authenticates the user using JSON</td>
+      </tr>
+      <tr>
+        <td><code>balance()</code></td>
+        <td>Displays user's balance</td>
+      </tr>
+      <tr>
+        <td><code>deposit()</code></td>
+        <td>Adds money to balance</td>
+      </tr>
+      <tr>
+        <td><code>withdraw()</code></td>
+        <td>Withdraws money with checks</td>
+      </tr>
+      <tr>
+        <td><code>saveUpdatedBalances()</code></td>
+        <td>Saves new balance data to a file</td>
+      </tr>
+      <tr>
+        <td><code>logoff()</code></td>
+        <td>Saves and resets session</td>
+      </tr>
+      <tr>
+        <td><code>transfer()</code></td>
+        <td>Feature planned but not yet implemented</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<br>
+
+-----------------------
+
+<br>
+
+
+<!-- ATM Simulator JavaScript Code Explanation with JSON Focus -->
+
+<div id="js-explanation">
+
+  <h2>ATM Simulator: JavaScript Code Breakdown</h2>
+
+  <h3>1. Prevent Default Form Submission</h3>
+  <p>
+    <code>e.preventDefault();</code> prevents the browser from submitting a form the traditional way (which would reload the page).
+    This allows JavaScript to control the flow of logic (like checking login credentials) without refreshing the page.
+  </p>
+
+  <h3>2. Global Variables</h3>
+  <ul>
+    <li><strong>currentuser</strong>: Stores the username of the person who logs in.</li>
+    <li><strong>balances</strong>: This array is loaded from a JSON file and holds all user balances.</li>
+    <li><strong>currentbalance</strong>: Holds the numeric balance of the currently logged-in user, for use in deposit/withdrawal.</li>
+  </ul>
+
+  <h3>3. <code>login()</code> Function</h3>
+  <p>This function authenticates a user using data stored in a <code>login.json</code> file.</p>
+
+  <h4>JSON & JavaScript Commands Explained:</h4>
+  <ul>
+    <li><code>fetch('login.json')</code>: Loads the file <code>login.json</code> from the server or local directory.</li>
+    <li><code>.then(response => response.json())</code>: Converts the response into usable JavaScript objects using <strong>JSON parsing</strong>.</li>
+    <li><code>data.forEach(entry => ...)</code>: Loops through the array of user objects.</li>
+    <li><code>entry.user === inputUser</code>: Accesses the <code>user</code> property inside a JSON object.</li>
+    <li><code>Array.some()</code>: Checks if any element in the array matches a condition (here, a matching user and password).</li>
+  </ul>
+
+  <p>If login is successful, the <code>currentuser</code> is set, and the user interface is updated to show a welcome message.</p>
+
+  <h3>4. <code>balance()</code> Function</h3>
+  <p>Gets the current balance for the logged-in user from <code>balances.json</code>.</p>
+
+  <h4>JSON Concepts:</h4>
+  <ul>
+    <li><code>fetch('balances.json')</code>: Retrieves the balance file as JSON.</li>
+    <li><code>balances = data;</code>: Stores the whole JSON array in a global variable.</li>
+    <li><code>Array.find()</code>: Returns the balance object for the <code>currentuser</code>.</li>
+    <li><code>entry.user</code>: Accesses individual properties from JSON objects, which are structured like: <code>{ "user": "john", "balance": 120 }</code></li>
+  </ul>
+
+  <h3>5. <code>deposit()</code> Function</h3>
+  <p>Allows the user to enter an amount and add it to their current balance.</p>
+
+  <ul>
+    <li><code>Number(prompt(...))</code>: Gets numeric input from the user.</li>
+    <li><code>isNaN()</code>: Checks if the entered value is not a number.</li>
+    <li><code>currentbalance += new_deposit</code>: Updates the in-memory value.</li>
+    <li><code>balances[userIndex].balance = currentbalance</code>: Updates the balance in the JSON-like structure stored in memory (not the actual file).</li>
+  </ul>
+
+  <h3>6. <code>withdraw()</code> Function</h3>
+  <p>Works similar to <code>deposit()</code>, but subtracts from balance with overdraft protection.</p>
+
+  <ul>
+    <li><code>withdrawalAmount > currentbalance</code>: Ensures users can’t withdraw more than they have.</li>
+    <li>Same logic as <code>deposit()</code> is used to update the in-memory JSON data.</li>
+  </ul>
+
+  <h3>7. <code>saveUpdatedBalances()</code> Function</h3>
+  <p>This function turns the updated balances (in memory) back into a downloadable JSON file.</p>
+
+  <h4>Key JSON & File Handling Concepts:</h4>
+  <ul>
+    <li><code>JSON.stringify(balances, null, 2)</code>: Converts the JS object (array of user balances) into a JSON string with pretty formatting (indentation of 2 spaces).</li>
+    <li><code>Blob</code>: Creates a file-like object out of the stringified JSON.</li>
+    <li><code>URL.createObjectURL(blob)</code>: Generates a temporary download link.</li>
+    <li><code>a.download = "balances.json"</code>: Names the file to be downloaded.</li>
+    <li><code>a.click()</code>: Triggers the download automatically.</li>
+    <li><code>URL.revokeObjectURL(url)</code>: Cleans up the memory by removing the object URL.</li>
+  </ul>
+
+  <p>Note: This only works in the browser memory. The actual file on disk (like <code>balances.json</code>) will not be updated unless saved manually by the user.</p>
+
+  <h3>8. <code>transfer()</code> Function (Placeholder)</h3>
+  <p>This is a placeholder and currently does not do anything. It's where you could later implement money transfer between users.</p>
+
+  <h3>9. <code>logoff()</code> Function</h3>
+  <p>
+    Logs the user out, saves the balances to a file, and refreshes the page. Refreshing resets global variables and clears the session.
+  </p>
+
+  <ul>
+    <li><code>alert()</code>: Displays a confirmation message.</li>
+    <li><code>saveUpdatedBalances(balances)</code>: Saves the current state of balances to a downloadable file.</li>
+    <li><code>location.reload()</code>: Resets the app by reloading the page.</li>
+  </ul>
+
+  <h3>Summary of Key JSON Concepts</h3>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>fetch('file.json')</code></td>
+        <td>Loads JSON data from a local or remote file.</td>
+      </tr>
+      <tr>
+        <td><code>response.json()</code></td>
+        <td>Parses the response into JavaScript objects.</td>
+      </tr>
+      <tr>
+        <td><code>Array.forEach()</code></td>
+        <td>Iterates over all entries in the JSON array.</td>
+      </tr>
+      <tr>
+        <td><code>Array.find()</code></td>
+        <td>Returns the first matching item in an array (used for finding the user).</td>
+      </tr>
+      <tr>
+        <td><code>Array.some()</code></td>
+        <td>Returns <code>true</code> if any entry matches a condition (used for login check).</td>
+      </tr>
+      <tr>
+        <td><code>JSON.stringify()</code></td>
+        <td>Turns a JavaScript object or array back into a JSON string.</td>
+      </tr>
+      <tr>
+        <td><code>Blob</code></td>
+        <td>Creates a downloadable file from a string.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<br>
+
+-----------------------
+
+<br>
+
+<pre><code>
+
+<!-- ATM Simulator JavaScript with Full Explanation -->
+// Prevent the form from submitting/reloading when the send button is clicked
+document.getElementById("send_it").addEventListener("click", function(e) {
+    e.preventDefault(); // stops default browser form submit
+});
+
+// Global variables to hold user and balance information
+let currentuser = null;       // stores the username of the currently logged in user
+let balances = [];            // array of all user balances loaded from balances.json
+let currentbalance = null;    // current balance of the logged in user
+
+// Function to handle login logic
+function login() {
+    // Fetch login credentials from the JSON file
+    fetch('login.json')
+        .then(response => response.json()) // Parse the JSON into JS objects
+        .then(data => {
+            const loginArray = [];
+            data.forEach(entry => loginArray.push(entry)); // optional but clear
+
+            // Grab user input from HTML input fields
+            const inputUser = document.getElementById("username").value;
+            const inputPassword = document.getElementById("password").value;
+
+            // Check for valid username/password pair
+            const isValid = loginArray.some(entry =>
+                entry.user === inputUser && entry.password === inputPassword
+            );
+
+            if (isValid) {
+                currentuser = inputUser; // Save who logged in
+                document.getElementById("welcome").innerHTML = "Login successful. Welcome, " + inputUser;
+                document.getElementById("working_area").innerHTML = "What would you like to do today " + inputUser + "?";
+                document.getElementById("login_area").style.display = "none"; // Hide login area
+                console.log('Login successful!');
+                console.log(loginArray);
+            } else {
+                document.getElementById("welcome").innerHTML = "LOGIN UNSUCCESSFUL! Please try again!";
+                console.log('Invalid credentials.');
+            }
+
+            // Clear the input fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+}
+
+// Function to check and display balance
+function balance() {
+    // Make sure user is logged in
+    if (!currentuser) {
+        document.getElementById("balance").innerHTML = "Balance";
+        return;
+    }
+
+    // Fetch balance data from JSON
+    fetch('balances.json')
+        .then(response => response.json())
+        .then(data => {
+            balances = data; // store all balances globally
+
+            // Find the balance entry for the logged in user
+            const userBalance = balances.find(entry => entry.user === currentuser);
+
+            if (userBalance) {
+                currentbalance = Number(userBalance.balance); // Convert string to number
+                document.getElementById("working_area").innerHTML = "Your balance is: €" + userBalance.balance;
+                console.log("Balance:", userBalance.balance);
+            } else {
+                document.getElementById("balance").innerHTML = "Balance not found for user.";
+            }
+        })
+        .catch(error => {
+            console.error('Error loading balances:', error);
+        });
+}
+
+// Function to handle deposits
+function deposit() {
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const new_deposit = Number(prompt("How much would you like to deposit?")); // Ask user
+
+    if (isNaN(new_deposit) || new_deposit <= 0) {
+        alert("Invalid deposit amount!");
+        return;
+    }
+
+    currentbalance += new_deposit;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Deposit successful!<br> Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance; // Update in-memory value
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+// Function to handle withdrawals
+function withdraw() {
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const withdrawalAmount = Number(prompt("How much would you like to withdraw?"));
+
+    if (isNaN(withdrawalAmount) || withdrawalAmount <= 0) {
+        alert("Invalid withdrawal amount!");
+        return;
+    }
+
+    if (withdrawalAmount > currentbalance) {
+        alert("Insufficient funds for this withdrawal!");
+        return;
+    }
+
+    currentbalance -= withdrawalAmount;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Withdrawal successful!<br> Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance; // Save new balance
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+// Function to create a downloadable JSON file with updated balances
+function saveUpdatedBalances(balances) {
+    const dataStr = JSON.stringify(balances, null, 2); // Convert to JSON string with indentation
+    const blob = new Blob([dataStr], { type: "application/json" }); // Create file-like blob
+    const url = URL.createObjectURL(blob); // Generate download link
+
+    const a = document.createElement("a"); // Create invisible anchor tag
+    a.href = url;
+    a.download = "balances.json"; // Suggested file name
+    a.click(); // Auto-click to download
+
+    URL.revokeObjectURL(url); // Free up memory
+}
+
+// Transfer function placeholder
+function transfer() {
+    document.getElementById("working_area").innerHTML = "This function is currently not available";
+}
+
+// Logoff function
+function logoff() {
+    alert("Please confirm you want to log off!");
+    saveUpdatedBalances(balances); // Save session data before exiting
+    location.reload(); // Reloads the page and clears session
+}
+</code></pre>
+
+<br>
+-----------------------
+<br>
+
+<!-- JSON Explanation for ATM Simulator Manual -->
+<section>
+  <h2>💾 Understanding JSON in the ATM Simulator</h2>
+
+  <h3>🔰 What Is JSON?</h3>
+  <p>
+    JSON (JavaScript Object Notation) is a lightweight format for storing and transporting data. It’s commonly used for exchanging data between a client and server, and it’s structured like JavaScript objects.
+  </p>
+  <pre><code>[
+  {
+    "user": "john",
+    "password": "1234"
+  },
+  {
+    "user": "jane",
+    "password": "abcd"
+  }
+]</code></pre>
+
+  <h3>📥 1. Loading JSON Data (Reading)</h3>
+  <p>In your ATM simulator, you use <code>fetch()</code> to load JSON files like <code>login.json</code> or <code>balances.json</code>:</p>
+  <pre><code>fetch('login.json')
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    // work with the data
+  })
+  .catch(error =&gt; {
+    console.error('Error loading JSON:', error);
+  });</code></pre>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li><code>fetch('login.json')</code> – Requests the file from the same directory.</li>
+    <li><code>response.json()</code> – Converts the raw file into usable JavaScript data (array or object).</li>
+    <li><code>.then(data =&gt; { ... })</code> – Accesses the loaded data to process it.</li>
+    <li><code>.catch(error =&gt; { ... })</code> – Handles file-not-found or syntax errors.</li>
+  </ul>
+
+  <h3>💾 2. Saving JSON Data (Writing/Exporting)</h3>
+  <p>JavaScript in the browser cannot save files directly, but you used a clever trick to trigger a download:</p>
+  <pre><code>function saveUpdatedBalances(balances) {
+  const dataStr = JSON.stringify(balances, null, 2);
+  const blob = new Blob([dataStr], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "balances.json";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}</code></pre>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li><code>JSON.stringify(balances, null, 2)</code> – Converts JavaScript data into pretty JSON text.</li>
+    <li><code>new Blob()</code> – Creates a file-like object in memory.</li>
+    <li><code>URL.createObjectURL(blob)</code> – Generates a temporary download link.</li>
+    <li><code>document.createElement("a")</code> – Creates a hidden anchor tag.</li>
+    <li><code>a.click()</code> – Simulates the user clicking the file to download it.</li>
+    <li><code>URL.revokeObjectURL(url)</code> – Cleans up the temporary file URL.</li>
+  </ul>
+
+  <h3>📄 3. Working with Multiple JSON Files</h3>
+  <p>You used two JSON files:</p>
+  <ul>
+    <li><code>login.json</code> – For storing usernames and passwords.</li>
+    <li><code>balances.json</code> – For tracking account balances.</li>
+  </ul>
+
+  <p>You can load more files, like <code>transactions.json</code> or <code>settings.json</code>, with multiple <code>fetch()</code> calls or use <code>Promise.all()</code>:</p>
+  <pre><code>Promise.all([
+  fetch('login.json').then(r =&gt; r.json()),
+  fetch('balances.json').then(r =&gt; r.json())
+]).then(([logins, balances]) =&gt; {
+  // Both files loaded
+});</code></pre>
+
+  <h3>📂 Project File Structure Example</h3>
+  <pre><code>/atm-app/
+├── index.html
+├── app.js
+├── login.json
+├── balances.json
+├── transactions.json
+├── style.css</code></pre>
+
+  <h3>✅ Summary Table</h3>
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Method</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Load JSON</td>
+        <td><code>fetch() + .json()</code></td>
+        <td><code>fetch('login.json')</code></td>
+      </tr>
+      <tr>
+        <td>Parse JSON</td>
+        <td><code>response.json()</code></td>
+        <td>Gives usable array/object</td>
+      </tr>
+      <tr>
+        <td>Save JSON</td>
+        <td><code>JSON.stringify() + Blob</code></td>
+        <td><code>saveUpdatedBalances()</code></td>
+      </tr>
+      <tr>
+        <td>Multiple files</td>
+        <td><code>Promise.all()</code></td>
+        <td>Load logins + balances</td>
+      </tr>
+      <tr>
+        <td>Format JSON nicely</td>
+        <td><code>JSON.stringify(obj, null, 2)</code></td>
+        <td>Indented JSON</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>If you'd like, I can also help generate example contents for each JSON file you're using.</p>
+</section>
+
+
+    
+</body>
+</html>

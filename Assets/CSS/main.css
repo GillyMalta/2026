@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Khand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Khand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap');
+
+:root {
+    --std_Font_Khand: 'Khand';
+    --std_Font_Bangers: 'Bangers';
+    --std_Font_Chewy: 'Chewy';
+    --std_Font_Luckiest_Guy: 'Luckiest Guy';
+    --std_Font_Poppins: 'Poppins';
+
+    --std_Colour_C2E2ee: #C2E2EE;
+    --std_Colour_649CBE: #649CBE;
+    --std_Colour_2E5F7C: #2E5F7C;
+    --std_Colour_Black: black;
+    --std_Colour_Royalblue: royalblue;
+    
+    --std_05_Rem: 0.5rem;
+    --std_10_Rem: 1.0rem;
+    --std_2_Rem: 2.0rem;
+}
+
+/* -------------------------------------------------------- */
+
+/* COMMONS */
+
+* {
+    font-family: var(--std_Font_Khand);
+}
+
+/* header, */
+/* form */
+nav,
+main,
+aside,
+#mainContainer,
+table,
+footer,
+#socialMedia,
+article {
+    border: solid 1px black;
+    border-radius: var(--std_05_Rem);
+    margin: var(--std_05_Rem);
+    padding: var(--std_05_Rem);
+    background-color: var(--std_Colour_649CBE);
+}
+
+h2 {
+    grid-column: 1 / -1;
+}
+
+a:hover {
+    transform: scale(1.1);
+    color: var(--std_Colour_C2E2ee);
+    text-transform: uppercase;
+}
+
+.divider {
+    font-size: 6rem;
+    font-weight: 100;
+    color: var(--std_Colour_C2E2ee);
+}
+
+/* -------------------------------------------------------- */
+
+/* SLIDESHOW */
+
+#slideshow {
+    margin: var(--std_05_Rem);
+    margin-bottom: 0;
+    width: 99%;
+    height: 19.5rem;
+    border-radius: 8px;
+    border: solid black 1px;
+}
+
+/* -------------------------------------------------------- */
+
+/* SEMANTICAL */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+nav a {
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: none;
+    transition: ease-in 1s;
+}
+
+header {
+    height: 20rem;
+}
+
+main {
+    background-color: var(--std_Colour_649CBE);
+    display: grid;
+    grid-template-columns: 30% auto;
+}
+
+aside {
+    transition: ease-in 1s;
+}
+
+aside img {
+    width: 100%;
+    border-radius: var(--std_05_Rem);
+    opacity: 90%;
+}
+
+#mainContainer {
+    transition: ease-in 1s;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+footer {
+    background-color: var(--std_Colour_649CBE);
+    display: grid;
+    grid-template-columns: 40% auto;
+}
+
+#socialMediaContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 20% 30% auto;
+    border-left: solid #C2E2EE 2px;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+label {
+    grid-column: 2;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-self:end;
+    font-size: 1.5rem;
+}
+
+input {
+    background-color: var(--std_Colour_649CBE);
+    border: none;
+    border-bottom: solid black 1px;
+    padding: 0;
+}
+
+input::placeholder {
+    font-family: var(--std_Font_Khand);
+    color: black;
+    font-size: var(--std_10_Rem);
+    font-style: italic;
+}
+
+select {
+    grid-column: 3;
+    padding: 0.5rem;
+    margin: 0.5rem 0 0.5rem 0;
+    font-size: 1rem;
+    background-color: var(--std_Colour_649CBE);
+    border: none;
+    border-bottom: solid black 1px;
+}
+
+form button {
+    grid-column: 3;
+    padding: 0.5rem;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    background-color: var(--std_Colour_649CBE);
+    border: none;
+    border-bottom: solid black 1px;
+    transition: ease-in 1s;
+}
+
+form button:hover {
+    transform: scale(1.02);
+    color: var(--std_Colour_C2E2ee);
+    text-transform: uppercase;
+}
+
+
+#disclaimer {
+    text-align: justify;
+}
+
+/* -------------------------------------------------------- */
+
+/* CLASSES */
+
+.boldBlue {
+    font-weight: bold;
+    color: blue;
+}
+
+.aboutMe {
+    text-align: justify;
+}
+
+/* -------------------------------------------------------- */

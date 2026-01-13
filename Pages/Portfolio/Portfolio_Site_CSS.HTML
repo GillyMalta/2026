@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | CSS Code (Site)</title>
+    <link rel="stylesheet" href="/Assets/CSS/Highlights.css">
+</head>
+<body>
+    
+<pre><code>
+
+<span class="yellowHighlight">@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');</span>
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Khand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Khand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    <span class="yellowHighlight">--std_Font_Khand:               'Khand';</span>
+    --std_Font_Bangers:             'Bangers';
+    --std_Font_Chewy:               'Chewy';
+    --std_Font_Luckiest_Guy:        'Luckiest Guy';
+    --std_Font_Poppins:             'Poppins';
+    --std_Font_Lato:                'Lato';
+    --std_Font_Roboto:              'Roboto';
+    --std_Font_Montserrat:          'Montserrat';  
+    --std_Font_Oswald:              'Oswald';
+    --std_Font_Raleway:             'Raleway';
+
+    --std_Colour_C2E2ee:            #C2E2EE;
+    --std_Colour_649CBE:            #649CBE;
+    --std_Colour_2E5F7C:            #2E5F7C;
+    --std_Colour_FAFAFA:            #FAFAFA;
+    --std_Colour_F9F9F9:            #F9F9F9;
+    --std_Colour_F7F7F7:            #F7F7F7;
+    --std_Colour_FFFDF8:            #FFFDF8;
+    --std_Colour_FDF6EC:            #FDF6EC;
+    --std_Colour_FAF3E0:            #FAF3E0;
+    --std_Colour_F5F7FA:            #F5F7FA;
+    --std_Colour_F2F4F8:            #F2F4F8;
+    --std_Colour_EEF1F5:            #EEF1F5;
+    --std_Colour_Black:             black;
+    --std_Colour_Royalblue:         royalblue;
+    --std_Colour_Lightgrey:         lightgrey;
+    --std_Colour_Beige:             beige;
+    
+    --std_Quarter_Rem:              0.25rem;
+    --std_Half_Rem:                 0.5rem;
+    --std_One_Rem:                  1.0rem;
+    --std_Two_Rem:                  2.0rem;
+    --std_Six_Rem:                  6.0rem;
+    --std_Ten_Rem:                  10rem;
+    --std_Fifteen_Rem:              15rem;
+
+    --std_Time_Halfsec:             0.5s;
+    --std_Time_Onesec:              1.0s;
+    --std_Time_Twosec:              2.0s;
+
+    --std_VH_10:                    10vh;
+    --std_VH_15:                    15vh;
+    --std_VH_20:                    20vh;
+    --std_VH_30:                    30vh;
+}
+
+/* ____________________________________________________________________ */
+
+/* COMMONS */
+
+html {
+  scroll-behavior: smooth;
+}
+
+<span class="yellowHighlight">
+* {
+    font-family: var(--std_Font_Khand);
+}</span>
+
+body {
+    background-color: var(--std_Colour_F5F7FA);
+}
+
+h1,
+h2 {
+    grid-column: 1 / -1;
+}
+
+hr {
+    border: solid royalblue 1px;
+    padding: 0 var(--std_Half_Rem);
+}
+
+a {
+    font-size: var(--std_Two_Rem);
+    text-decoration: none;
+    color: var(--std_Colour_Black);
+    transition: ease var(--std_Time_Onesec);
+}
+
+a:hover {
+    transform: scale(1.05);
+    color: var(--std_Colour_C2E2ee);
+}
+
+p {
+    text-align: justify;
+}
+
+/* ____________________________________________________________________ */
+
+/* GROUPINGS */
+
+nav,
+header,
+#slideshow,
+main,
+aside,
+#mainContainer,
+footer,
+#address,
+form,
+#socialMediaContainer,
+#disclaimer {
+    margin: var(--std_Quarter_Rem);
+    padding: var(--std_Quarter_Rem);
+    border-radius: var(--std_Half_Rem);
+}
+
+nav,
+header,
+#slideshow,
+main,
+aside,
+#mainContainer,
+footer,
+#address,
+#socialMediaContainer,
+#disclaimer,
+form {
+    border: solid lightgray 1px;
+}
+
+label,
+input,
+select {
+    margin: var(--std_Half_Rem);
+    padding: var(--std_Half_Rem);
+    border: none;
+    background-color: var(--std_Colour_F5F7FA);
+}
+
+input,
+select {
+    grid-column: 2;
+    border-bottom: solid var(--std_Colour_Black) 1px;
+}
+
+/* ____________________________________________________________________ */
+
+/* SEMANTICS */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    transition: ease-in var(--std_Time_Halfsec);
+    height: var(--std_VH_15);
+    margin: 0 var(--std_Ten_Rem);
+
+}
+
+.divider {
+    font-size: var(--std_Six_Rem);
+    font-weight: 100;
+    color: var(--std_Colour_Royalblue);
+}
+
+header {
+    transition: ease-in 0.5s;
+}
+
+header {
+    height: var(--std_VH_30);
+
+    /* background: linear-gradient(
+        to left,
+        #000 0%,
+        #222 30%,
+        #F5F7FA 100%
+    ); */
+
+    /* background: linear-gradient(
+        to right,
+        #F7F7F7 0%,
+        #Dc0000 50%,
+        #f7f7f7 100%
+    ); */
+
+    background: linear-gradient(
+        to right,
+        red 0%,
+        #f7f7f7 30%,
+        #f7f7f7 50%,
+        #f7f7f7 70%,
+        red 100%
+    );
+}
+
+#slideshowContainer {
+    margin: 0 var(--std_Ten_Rem);
+    clip-path: circle(50% at 50% 50%);
+    /* Clip path coordinates courtesy of Clippy https://bennettfeely.com/clippy/ */
+}
+
+#slideshowContainer h2 {
+    position: absolute;
+    margin-left: var(--std_Fifteen_Rem);
+    color: var(--std_Colour_C2E2ee);
+
+}
+
+main {
+    margin: 0 var(--std_Ten_Rem);
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 30% 30% auto;
+}
+
+#socialMediaContainer,
+#socialMediaContainer p {
+    text-align: center;
+    align-content: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 30% auto;
+}
+
+label {
+    grid-column: 1;
+    text-align: end;
+}
+
+input::placeholder {
+    font-style: italic;
+    color: var(--std_Colour_Black);
+}
+
+#sendIt:hover {
+    transform: scale(1.05);
+    text-transform: uppercase;
+    background-color: var(--std_Colour_F5F7FA);
+    border: none;
+}
+
+#disclaimer {
+    height: var(--std_VH_10);
+    margin: 0 var(--std_Ten_Rem);
+}
+
+#copyright {
+    font-size: var(--std_One_Rem);
+}
+
+/* ____________________________________________________________________ */
+
+/* Mobile Views */
+
+/* MOBILE PORTRAIT VIEW */
+@media (max-width: 480px) {
+
+}
+
+/* MOBILE LANDSCAPE VIEW */
+@media (min-width:481px) and (max-width:767px) {
+
+}
+
+/* TABLET PORTRAIT VIEW */
+@media (min-width: 768px) and (max-width:1023px) {
+
+}
+
+/* TABLET LANDSCAPE VIEW */
+@media (min-width: 1024px) and (max-width:1199px) {
+
+}
+
+/* LAPTOP VIEW */
+@media (min-width: 1200px) and (max-width: 1439px) {
+
+}
+
+/* DESKTOP VIEW */
+@media (min-width: 1440px) {
+
+}
+
+/* ____________________________________________________________________ */
+
+</code></pre>
+
+
+
+</body>
+</html>

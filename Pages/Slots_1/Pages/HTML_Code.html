@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine | HTML Code</title>
+    <link rel="stylesheet" href="../Assets/CSS/slots2.css">
+</head>
+<body>
+
+<header>
+        <a href="../slots2.html" target="_blank">Home Page</a>
+        <a href="./Pages/HTML_Code.html" target="_blank">HTML Code</a>
+        <a href="./Pages/CSS_Code.html" target="_blank">CSS Code</a>
+        <a href="./Pages/JAVASCRIPT_code.html" target="_blank">Javascript Code</a>
+</header>    
+
+<h2>
+    This is the HTML code for the Slot Machine Simulator
+</h2>
+
+<h3>
+    Have used semantics wherever possible for example &lt;header&gt;, &lt;main&gt; and &lt;dialog&gt;.
+</h3>
+
+<hr>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Slot Machine V2.0&lt;/title&gt;
+    &lt;link rel="stylesheet" href="./Assets/CSS/slots2.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;header&gt;
+        &lt;a href="./Pages/HTML_Code.html" target="_blank"&gt;HTML Code&lt;/a&gt;
+        &lt;a href="./Pages/CSS_Code.html" target="_blank"&gt;CSS Code&lt;/a&gt;
+        &lt;a href="./Pages/JAVASCRIPT_code.html" target="_blank"&gt;Javascript Code&lt;/a&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+
+&lt;h2&gt;Counting &lt;span class="redBlack"&gt; 10&lt;/span&gt;'s per slot...&lt;/h2&gt;
+
+&lt;table class="tables" border="1" cellpadding="8" cellspacing="0"&gt;
+
+    &lt;thead&gt;
+
+        &lt;th&gt;Playcount&lt;/th&gt;
+
+        &lt;th&gt;Slot 1&lt;/th&gt;
+        &lt;th&gt;Slot 2&lt;/th&gt;
+        &lt;th&gt;Slot 3&lt;/th&gt;
+
+        &lt;th&gt;Of which were Singles&lt;/th&gt;
+        &lt;th&gt;Of which were Doubles&lt;/th&gt;
+        &lt;th&gt;Of which were Trebles&lt;/th&gt;
+    &lt;/thead&gt;
+
+    &lt;tr&gt;
+
+        &lt;td id="roundCount"&gt;&lt;/td&gt;
+
+        &lt;td id="firstSlot"&gt;0&lt;/td&gt;
+        &lt;td id="secondSlot"&gt;0&lt;/td&gt;
+        &lt;td id="thirdSlot"&gt;0&lt;/td&gt;
+        &lt;td id="tableTotals"&gt;0&lt;/td&gt;
+
+        &lt;td id="twoTens"&gt;0&lt;/td&gt;
+        &lt;td id="threeTens"&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+
+&lt;!-- &lt;h2 id="gameCredits"&gt;&lt;/h2&gt; --&gt;
+&lt;!-- &lt;h2 id="roundCount"&gt;&lt;/h2&gt; --&gt;
+
+&lt;hr&gt;
+
+&lt;div id="three_Columns"&gt;
+
+    &lt;div class="column1"&gt;
+        &lt;p&gt;Slot 1&lt;/p&gt;
+            &lt;div id="slot1"&gt;
+                LOCKED!
+            &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="column2"&gt;
+        &lt;p&gt;Slot 2&lt;/p&gt;
+            &lt;div id="slot2"&gt;
+                LOCKED!
+            &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="column3"&gt;
+        &lt;p&gt;Slot 3&lt;/p&gt;
+            &lt;div id="slot3"&gt;
+                LOCKED!
+            &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- &lt;button class="blink" id="spinIt" onclick="spinner()" data-hover="Spinning!"&gt;Spin&lt;/button&gt;
+
+    &lt;button class="blink" id="cashOut" onclick="cashedOut()"&gt;Cash Out&lt;/button&gt;
+ --&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;div id="buttonsContainer"&gt;
+
+    &lt;button class="blink" id="spinIt" onclick="spinner()" data-hover="Spinning!"&gt;Spin&lt;/button&gt;
+
+    &lt;!-- &lt;button class="hidden"&gt;&lt;/button&gt; --&gt;
+
+    &lt;div class="credits"&gt;
+        &lt;!-- &lt;h2&gt;Credits Available:&lt;/h2&gt; --&gt;
+        &lt;h3&gt;Credits: &lt;/h3&gt;
+        &lt;h2 id="gameCredits"&gt;&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;button class="blink" id="cashOut" onclick="cashedOut()"&gt;Cash Out&lt;/button&gt;
+
+&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h3&gt;There are very few rules in the game...&lt;/h3&gt;
+
+&lt;p&gt;
+    &lt;span class="redBold"&gt;START &lt;/span&gt; by clicking the &lt;span class="blueBold"&gt;SPIN &lt;/span&gt; button and Javascript will randomise your credits for a maximum of &lt;span class="gold"&gt;100 credits &lt;/span&gt;.
+    &lt;br&gt;Simultaneously, Javascript will randomise 3 numbers, between &lt;span class="redBold"&gt;1 and 10 &lt;/span&gt;
+    for each slot. 
+    &lt;br&gt;
+    &lt;h3&gt;Scoring&lt;/h3&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;    
+            Numbers between 1 and 9 and worthless however, if you land a &lt;span class="redBlack"&gt; 10&lt;/span&gt; in any slot, you will win &lt;span class="redBold"&gt;1 credit.&lt;/span&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            Land &lt;span class="redBold"&gt;a pair of &lt;/span&gt; &lt;span class="redBlack"&gt;10&lt;/span&gt;'s' in either of the 3 slots, and you will win &lt;span class="redBold"&gt; 10 credits. &lt;/span&gt;
+        &lt;/li&gt;
+
+        &lt;li&gt;
+            Land &lt;span class="redBold"&gt;treble &lt;/span&gt; &lt;span class="redBlack"&gt;10&lt;/span&gt; 's and you will win &lt;span class="gold"&gt;100 CREDITS!!&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    Don't worry about counting &lt;span class="redBlack"&gt; 10 &lt;/span&gt;'s. The table below is keeping track for you!
+    &lt;br&gt;You also have the option of cashing out... just click the &lt;span class="blueBold"&gt; CASH OUT &lt;/span&gt; button to retrieve the remaining credits.
+    &lt;br&gt;Once you burn up all your credits, game will stop, reset and will start over with a new credit limit. 
+    &lt;br&gt;If, at any time, you want to restart the game, simply refresh your browser.
+    &lt;br&gt;&lt;br&gt;Oh and play responsibly, will ya??!!
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&copy; Gilbert Sammut | December 2025
+
+&lt;dialog id="gameModal"&gt;
+    &lt;p id="modalText"&gt;Out of credits! 
+        &lt;br&gt;
+        Game Over!
+        &lt;br&gt;
+        Resetting... Please wait
+    &lt;/p&gt;
+&lt;/dialog&gt;
+
+&lt;dialog id="cashingOut"&gt;
+    &lt;p&gt;Cashing Out&lt;/p&gt;
+    &lt;p&gt;Total Winnings :&lt;/p&gt;
+    &lt;div id="totalWinnings"&gt;&lt;/div&gt;
+    &lt;p&gt;Game resetting...&lt;/p&gt;
+&lt;/dialog&gt;
+
+
+&lt;script src="./Scripts/slots2.js"&gt;&lt;/script&gt;
+&lt;/main&gt;    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<hr>
+
+</body>
+</html>

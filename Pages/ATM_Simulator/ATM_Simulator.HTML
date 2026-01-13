@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>ATM Simulator</title>
+    <link rel="stylesheet" href="/CSS/main.CSS">
+</head>
+<body>
+
+<h1>The ATM Simulator</h1>    
+   
+<h2>This is the HTML for the ATM Simulator</h2>    
+    
+<pre><code>
+&lt;!doctype html&gt;
+&lt;html lang="EN"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;ATM Simulator&lt;/title&gt;
+&lt;link href="ATM.css" rel="stylesheet" type="text/css"&gt;
+&lt;/head&gt;
+&lt;header&gt;
+&lt;img src="/Assets/Images/ATM/LPPP_to_use.jpg" alt="Bank Logo" title="Bank Logo"&gt;
+&lt;!-- &lt;img src="../ATM/LP3B Logo.png" alt="Bank Logo" title="Bank Logo"&gt; --&gt;
+
+&lt;h3 id="dateToday"&gt;&lt;/h3&gt;	
+&lt;br&gt;	
+&lt;/header&gt;
+	
+&lt;body&gt;
+&lt;form id="login_area"&gt;
+    
+    &lt;label for="user"&gt;Username: 
+    &lt;input type="text" required="required" id="username" name="user" class="logins"&gt;&lt;/label&gt;
+&lt;br&gt;
+	
+    &lt;label for="pass"&gt;&lt;br&gt;Password: 
+    &lt;input type="password" required="required" id="password" name="pass" class="logins"&gt;&lt;/label&gt;
+
+&lt;br&gt;&lt;br&gt;	
+
+&lt;button id="send_it" <span class="red_Bold">onclick="login()"</span> type="submit"&gt;Login&lt;/button&gt;	
+&lt;/form&gt;	
+&lt;br&gt;	
+
+&lt;div id="welcome"&gt;&lt;/div&gt;
+&lt;br&gt;	
+&lt;div id="working_area"&gt;
+&lt;h3 id="withdraw_area"&gt;&lt;/h3&gt;	
+&lt;h3 id="deposit_area"&gt;&lt;/h3&gt;	
+&lt;h3 id="balance_area"&gt;&lt;/h3&gt;	
+&lt;h3 id="transfer_area"&gt;&lt;/h3&gt;	
+	
+&lt;div id="toDo" hidden&gt;What would you like to do?&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;button id="withdraw"<span class="green_Bold">onclick="withdraw()"</span>&gt;Withdraw&lt;/button&gt;	
+&lt;button id="deposit"<span class="blue_Bold">onclock="deposit()"</span>&gt;Deposit&lt;/button&gt;	
+&lt;button id="balance"<span class="purple_Bold">onlick="balance()"</span>&gt;Balance&lt;/button&gt;	
+&lt;button id="transfer"<span class="orange_Bold">onclick="transfer()"</span>&gt;Transfer&lt;/button&gt;	
+&lt;button id="logout"<span class="lawngreen_Bold">onclick="logoff()"</span>&gt;Logout&lt;/button&gt;	
+	
+&lt;script type="text/javascript" src="newATM_2.JS"&gt;&lt;/script&gt;
+
+&lt;br&gt;&lt;br&gt;
+&lt;footer&gt; &copy; Gilbert Sammut(2025). LPPP Bank, Lippu Pillu Pullu Pluppu Bank and it's logos are a fictitious bank I invented. &lt;/footer&gt;	
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<br>
+<hr>
+
+<h2>And the associated CSS</h2>
+<pre><code>
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Nixie+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap');
+
+body {
+	background-color: #E5EDFF;
+	font-family: Nixie One;
+	max-width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+h1, h2 {
+	color: #4C696D;
+}
+
+#dateToday {
+	font-size: 10px;
+	color: #4C696D;
+}
+
+p {
+	font-size: 20px;
+}
+
+button {
+	font-family: Nixie One;
+	font-size: 15px;
+	text-transform: capitalize;
+	border-radius: 8px;
+	border: solid #4C696D;
+	color: #E5EDFF;
+	font-weight: bold;
+	width: 145px;
+	background-color: #4C696D;
+	letter-spacing: 5px;
+}
+
+button:hover {
+	transform: scale(0.9);
+	border: solid #4C696D;
+	color: black;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#working_area {
+	width: 96%;
+	height: 200px;
+	border: solid #4C696D;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	font-family: calibri light;
+	background-color: #4C696D;
+	color: #E5EDFF;
+}
+
+#welcome {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.logins {
+	font-family: Nixie One;
+	font-size: 15px;
+	text-transform: capitalize;
+	border-radius: 8px;
+	border: solid #4C696D;
+	color: #4C696D;
+	font-weight: bold;
+	width: 150px;
+	height: 20px;
+	background-color: #E5EDFF;
+}
+
+#send_it {
+	margin-left: 100px;
+	width: 160px;
+}
+
+#username {
+	margin-left: 10px;
+	width: 150px;
+}
+
+#password {
+	margin-left: 14px;
+	width: 150px;
+}
+
+#welcome {
+	text-transform: capitalize;
+}
+
+footer {
+	font-size: 10px;
+}
+</code></pre>
+
+<br>
+<hr>
+
+<h2>And the associated JavaScript</h2>
+<pre><code>
+document.getElementById("send_it").addEventListener("click", function(e){
+    e.preventDefault();
+});
+
+let currentuser = null;
+let balances = [];
+let currentbalance = null;
+
+<span class="red_Bold">function login() {</span>
+<span class="steelblue_Bold"> 
+    fetch('login.json')
+        .then(response => response.json())
+        .then(data => {
+            const loginArray = [];
+
+            data.forEach(entry => loginArray.push(entry));
+
+            const inputUser = document.getElementById("username").value;
+            const inputPassword = document.getElementById("password").value;
+
+            const isValid = loginArray.some(entry =>
+                entry.user === inputUser && entry.password === inputPassword
+            );</span>
+
+            if (isValid) {
+                currentuser = inputUser;
+                document.getElementById("welcome").innerHTML = "Login successful. Welcome, " + inputUser;
+                document.getElementById("working_area").innerHTML = "What would you like to do today " + inputUser + "?";
+                document.getElementById("login_area").style.display = "none";
+                console.log('Login successful!');
+                console.log(loginArray);
+            } else {
+                document.getElementById("welcome").innerHTML = "LOGIN UNSUCCESSFUL! Please try again!";
+                console.log('Invalid credentials.');
+            }
+
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        }) <span class="steelblue_Bold">
+        .catch(error => {
+            console.error('Error loading JSON:', error);</span>
+        });
+}
+
+<span class="purple_Bold">function balance() {</span>
+    if (!currentuser) {
+        document.getElementById("balance").innerHTML = "Balance";
+        return;
+    }
+
+    <span class="steelblue_Bold">fetch('balances.json')
+        .then(response => response.json())
+        .then(data => {
+            balances = data;</span>
+
+            const userBalance = balances.find(entry => entry.user === currentuser);
+
+            if (userBalance) {
+                currentbalance = Number(userBalance.balance);
+                document.getElementById("working_area").innerHTML = "Your balance is: €" + userBalance.balance;
+                console.log("Balance:", userBalance.balance);
+            } else {
+                document.getElementById("balance").innerHTML = "Balance not found for user.";
+            }
+        })
+        .catch(error => {
+            console.error('Error loading balances:', error);
+        });
+}
+
+<span class="blue_Bold">function deposit() {</span>
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const new_deposit = Number(prompt("How much would you like to deposit?"));
+
+    if (isNaN(new_deposit) || new_deposit <= 0) {
+        alert("Invalid deposit amount!");
+        return;
+    }
+
+    currentbalance += new_deposit;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Deposit successful!<br> Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance;
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+<span class="green_Bold">function withdraw() {</span>
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const withdrawalAmount = Number(prompt("How much would you like to withdraw?"));
+
+    if (isNaN(withdrawalAmount) || withdrawalAmount <= 0) {
+        alert("Invalid withdrawal amount!");
+        return;
+    }
+
+    if (withdrawalAmount > currentbalance) {
+        alert("Insufficient funds for this withdrawal!");
+        return;
+    }
+
+    currentbalance -= withdrawalAmount;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Withdrawal successful!<br> Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance;
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+<span class="steelblue_Bold">
+function saveUpdatedBalances(balances) {
+    const dataStr = JSON.stringify(balances, null, 2);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "balances.json";
+    a.click();
+
+    URL.revokeObjectURL(url);</span>
+}
+
+<span class="orange_Bold">function transfer() {</span>
+    document.getElementById("working_area").innerHTML = "This function is currently not available";
+}
+
+<span class="lawngreen_Bold">function logoff() {</span>
+    alert("Please confirm you want to log off!");
+    saveUpdatedBalances(balances);
+    location.reload();
+}
+</code></pre>
+
+
+<br>
+----------------
+<br>
+
+
+<pre><code>
+// Prevent the form from submitting/reloading when the send button is clicked
+document.getElementById("send_it").addEventListener("click", function(e) {
+    e.preventDefault(); // stops default browser form submit
+});
+
+// Global variables to hold user and balance information
+let currentuser = null;       // stores the username of the currently logged in user
+let balances = [];            // array of all user balances loaded from balances.json
+let currentbalance = null;    // current balance of the logged in user
+
+// Function to handle login logic
+function login() {
+    // Fetch login credentials from the JSON file
+    fetch('login.json')
+        .then(response => response.json()) // Parse the JSON into JS objects
+        .then(data => {
+            const loginArray = [];
+            data.forEach(entry => loginArray.push(entry)); // optional but clear
+
+            // Grab user input from HTML input fields
+            const inputUser = document.getElementById("username").value;
+            const inputPassword = document.getElementById("password").value;
+
+            // Check for valid username/password pair
+            const isValid = loginArray.some(entry =>
+                entry.user === inputUser && entry.password === inputPassword
+            );
+
+            if (isValid) {
+                currentuser = inputUser; // Save who logged in
+                document.getElementById("welcome").innerHTML = "Login successful. Welcome, " + inputUser;
+                document.getElementById("working_area").innerHTML = "What would you like to do today " + inputUser + "?";
+                document.getElementById("login_area").style.display = "none"; // Hide login area
+                console.log('Login successful!');
+                console.log(loginArray);
+            } else {
+                document.getElementById("welcome").innerHTML = "LOGIN UNSUCCESSFUL! Please try again!";
+                console.log('Invalid credentials.');
+            }
+
+            // Clear the input fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+}
+
+// Function to check and display balance
+function balance() {
+    // Make sure user is logged in
+    if (!currentuser) {
+        document.getElementById("balance").innerHTML = "Balance";
+        return;
+    }
+
+    // Fetch balance data from JSON
+    fetch('balances.json')
+        .then(response => response.json())
+        .then(data => {
+            balances = data; // store all balances globally
+
+            // Find the balance entry for the logged in user
+            const userBalance = balances.find(entry => entry.user === currentuser);
+
+            if (userBalance) {
+                currentbalance = Number(userBalance.balance); // Convert string to number
+                document.getElementById("working_area").innerHTML = "Your balance is: €" + userBalance.balance;
+                console.log("Balance:", userBalance.balance);
+            } else {
+                document.getElementById("balance").innerHTML = "Balance not found for user.";
+            }
+        })
+        .catch(error => {
+            console.error('Error loading balances:', error);
+        });
+}
+
+// Function to handle deposits
+function deposit() {
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const new_deposit = Number(prompt("How much would you like to deposit?")); // Ask user
+
+    if (isNaN(new_deposit) || new_deposit <= 0) {
+        alert("Invalid deposit amount!");
+        return;
+    }
+
+    currentbalance += new_deposit;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Deposit successful!<br> Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance; // Update in-memory value
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+// Function to handle withdrawals
+function withdraw() {
+    if (!currentuser) {
+        document.getElementById("working_area").innerHTML = "Please log in first!";
+        return;
+    }
+
+    if (currentbalance === null) {
+        document.getElementById("working_area").innerHTML = "Balance not loaded. Please check your balance first.";
+        return;
+    }
+
+    const withdrawalAmount = Number(prompt("How much would you like to withdraw?"));
+
+    if (isNaN(withdrawalAmount) || withdrawalAmount <= 0) {
+        alert("Invalid withdrawal amount!");
+        return;
+    }
+
+    if (withdrawalAmount > currentbalance) {
+        alert("Insufficient funds for this withdrawal!");
+        return;
+    }
+
+    currentbalance -= withdrawalAmount;
+    console.log("Your current balance is €" + currentbalance);
+    document.getElementById("working_area").innerHTML = "Withdrawal successful!<br> Your updated balance is €" + currentbalance;
+
+    const userIndex = balances.findIndex(entry => entry.user === currentuser);
+    if (userIndex !== -1) {
+        balances[userIndex].balance = currentbalance; // Save new balance
+    } else {
+        alert("User not found in balances.");
+    }
+}
+
+// Function to create a downloadable JSON file with updated balances
+function saveUpdatedBalances(balances) {
+    const dataStr = JSON.stringify(balances, null, 2); // Convert to JSON string with indentation
+    const blob = new Blob([dataStr], { type: "application/json" }); // Create file-like blob
+    const url = URL.createObjectURL(blob); // Generate download link
+
+    const a = document.createElement("a"); // Create invisible anchor tag
+    a.href = url;
+    a.download = "balances.json"; // Suggested file name
+    a.click(); // Auto-click to download
+
+    URL.revokeObjectURL(url); // Free up memory
+}
+
+// Transfer function placeholder
+function transfer() {
+    document.getElementById("working_area").innerHTML = "This function is currently not available";
+}
+
+// Logoff function
+function logoff() {
+    alert("Please confirm you want to log off!");
+    saveUpdatedBalances(balances); // Save session data before exiting
+    location.reload(); // Reloads the page and clears session
+}
+
+</code></pre>
+
+
+
+
+<br>
+----------------
+<br>
+
+<!-- JSON Explanation for ATM Simulator Manual -->
+<section>
+  <h2>💾 Understanding JSON in the ATM Simulator</h2>
+
+  <h3>🔰 What Is JSON?</h3>
+  <p>
+    JSON (JavaScript Object Notation) is a lightweight format for storing and transporting data. It’s commonly used for exchanging data between a client and server, and it’s structured like JavaScript objects.
+  </p>
+  <pre><code>[
+  {
+    "user": "john",
+    "password": "1234"
+  },
+  {
+    "user": "jane",
+    "password": "abcd"
+  }
+]</code></pre>
+
+  <h3>📥 1. Loading JSON Data (Reading)</h3>
+  <p>In your ATM simulator, you use <code>fetch()</code> to load JSON files like <code>login.json</code> or <code>balances.json</code>:</p>
+  <pre><code>fetch('login.json')
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    // work with the data
+  })
+  .catch(error =&gt; {
+    console.error('Error loading JSON:', error);
+  });</code></pre>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li><code>fetch('login.json')</code> – Requests the file from the same directory.</li>
+    <li><code>response.json()</code> – Converts the raw file into usable JavaScript data (array or object).</li>
+    <li><code>.then(data =&gt; { ... })</code> – Accesses the loaded data to process it.</li>
+    <li><code>.catch(error =&gt; { ... })</code> – Handles file-not-found or syntax errors.</li>
+  </ul>
+
+  <h3>💾 2. Saving JSON Data (Writing/Exporting)</h3>
+  <p>JavaScript in the browser cannot save files directly, but you used a clever trick to trigger a download:</p>
+  <pre><code>function saveUpdatedBalances(balances) {
+  const dataStr = JSON.stringify(balances, null, 2);
+  const blob = new Blob([dataStr], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "balances.json";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}</code></pre>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li><code>JSON.stringify(balances, null, 2)</code> – Converts JavaScript data into pretty JSON text.</li>
+    <li><code>new Blob()</code> – Creates a file-like object in memory.</li>
+    <li><code>URL.createObjectURL(blob)</code> – Generates a temporary download link.</li>
+    <li><code>document.createElement("a")</code> – Creates a hidden anchor tag.</li>
+    <li><code>a.click()</code> – Simulates the user clicking the file to download it.</li>
+    <li><code>URL.revokeObjectURL(url)</code> – Cleans up the temporary file URL.</li>
+  </ul>
+
+  <h3>📄 3. Working with Multiple JSON Files</h3>
+  <p>You used two JSON files:</p>
+  <ul>
+    <li><code>login.json</code> – For storing usernames and passwords.</li>
+    <li><code>balances.json</code> – For tracking account balances.</li>
+  </ul>
+
+  <p>You can load more files, like <code>transactions.json</code> or <code>settings.json</code>, with multiple <code>fetch()</code> calls or use <code>Promise.all()</code>:</p>
+  <pre><code>Promise.all([
+  fetch('login.json').then(r =&gt; r.json()),
+  fetch('balances.json').then(r =&gt; r.json())
+]).then(([logins, balances]) =&gt; {
+  // Both files loaded
+});</code></pre>
+
+  <h3>📂 Project File Structure Example</h3>
+  <pre><code>/atm-app/
+├── index.html
+├── app.js
+├── login.json
+├── balances.json
+├── transactions.json
+├── style.css</code></pre>
+
+  <h3>✅ Summary Table</h3>
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Method</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Load JSON</td>
+        <td><code>fetch() + .json()</code></td>
+        <td><code>fetch('login.json')</code></td>
+      </tr>
+      <tr>
+        <td>Parse JSON</td>
+        <td><code>response.json()</code></td>
+        <td>Gives usable array/object</td>
+      </tr>
+      <tr>
+        <td>Save JSON</td>
+        <td><code>JSON.stringify() + Blob</code></td>
+        <td><code>saveUpdatedBalances()</code></td>
+      </tr>
+      <tr>
+        <td>Multiple files</td>
+        <td><code>Promise.all()</code></td>
+        <td>Load logins + balances</td>
+      </tr>
+      <tr>
+        <td>Format JSON nicely</td>
+        <td><code>JSON.stringify(obj, null, 2)</code></td>
+        <td>Indented JSON</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>If you'd like, I can also help generate example contents for each JSON file you're using.</p>
+</section>
+
+<br>
+----------------
+<Br>
+
+<!-- ATM Simulator JavaScript Code Explanation with JSON Focus -->
+
+<div id="js-explanation">
+
+  <h2>ATM Simulator: JavaScript Code Breakdown</h2>
+
+  <h3>1. Prevent Default Form Submission</h3>
+  <p>
+    <code>e.preventDefault();</code> prevents the browser from submitting a form the traditional way (which would reload the page).
+    This allows JavaScript to control the flow of logic (like checking login credentials) without refreshing the page.
+  </p>
+
+  <h3>2. Global Variables</h3>
+  <ul>
+    <li><strong>currentuser</strong>: Stores the username of the person who logs in.</li>
+    <li><strong>balances</strong>: This array is loaded from a JSON file and holds all user balances.</li>
+    <li><strong>currentbalance</strong>: Holds the numeric balance of the currently logged-in user, for use in deposit/withdrawal.</li>
+  </ul>
+
+  <h3>3. <code>login()</code> Function</h3>
+  <p>This function authenticates a user using data stored in a <code>login.json</code> file.</p>
+
+  <h4>JSON & JavaScript Commands Explained:</h4>
+  <ul>
+    <li><code>fetch('login.json')</code>: Loads the file <code>login.json</code> from the server or local directory.</li>
+    <li><code>.then(response => response.json())</code>: Converts the response into usable JavaScript objects using <strong>JSON parsing</strong>.</li>
+    <li><code>data.forEach(entry => ...)</code>: Loops through the array of user objects.</li>
+    <li><code>entry.user === inputUser</code>: Accesses the <code>user</code> property inside a JSON object.</li>
+    <li><code>Array.some()</code>: Checks if any element in the array matches a condition (here, a matching user and password).</li>
+  </ul>
+
+  <p>If login is successful, the <code>currentuser</code> is set, and the user interface is updated to show a welcome message.</p>
+
+  <h3>4. <code>balance()</code> Function</h3>
+  <p>Gets the current balance for the logged-in user from <code>balances.json</code>.</p>
+
+  <h4>JSON Concepts:</h4>
+  <ul>
+    <li><code>fetch('balances.json')</code>: Retrieves the balance file as JSON.</li>
+    <li><code>balances = data;</code>: Stores the whole JSON array in a global variable.</li>
+    <li><code>Array.find()</code>: Returns the balance object for the <code>currentuser</code>.</li>
+    <li><code>entry.user</code>: Accesses individual properties from JSON objects, which are structured like: <code>{ "user": "john", "balance": 120 }</code></li>
+  </ul>
+
+  <h3>5. <code>deposit()</code> Function</h3>
+  <p>Allows the user to enter an amount and add it to their current balance.</p>
+
+  <ul>
+    <li><code>Number(prompt(...))</code>: Gets numeric input from the user.</li>
+    <li><code>isNaN()</code>: Checks if the entered value is not a number.</li>
+    <li><code>currentbalance += new_deposit</code>: Updates the in-memory value.</li>
+    <li><code>balances[userIndex].balance = currentbalance</code>: Updates the balance in the JSON-like structure stored in memory (not the actual file).</li>
+  </ul>
+
+  <h3>6. <code>withdraw()</code> Function</h3>
+  <p>Works similar to <code>deposit()</code>, but subtracts from balance with overdraft protection.</p>
+
+  <ul>
+    <li><code>withdrawalAmount > currentbalance</code>: Ensures users can’t withdraw more than they have.</li>
+    <li>Same logic as <code>deposit()</code> is used to update the in-memory JSON data.</li>
+  </ul>
+
+  <h3>7. <code>saveUpdatedBalances()</code> Function</h3>
+  <p>This function turns the updated balances (in memory) back into a downloadable JSON file.</p>
+
+  <h4>Key JSON & File Handling Concepts:</h4>
+  <ul>
+    <li><code>JSON.stringify(balances, null, 2)</code>: Converts the JS object (array of user balances) into a JSON string with pretty formatting (indentation of 2 spaces).</li>
+    <li><code>Blob</code>: Creates a file-like object out of the stringified JSON.</li>
+    <li><code>URL.createObjectURL(blob)</code>: Generates a temporary download link.</li>
+    <li><code>a.download = "balances.json"</code>: Names the file to be downloaded.</li>
+    <li><code>a.click()</code>: Triggers the download automatically.</li>
+    <li><code>URL.revokeObjectURL(url)</code>: Cleans up the memory by removing the object URL.</li>
+  </ul>
+
+  <p>Note: This only works in the browser memory. The actual file on disk (like <code>balances.json</code>) will not be updated unless saved manually by the user.</p>
+
+  <h3>8. <code>transfer()</code> Function (Placeholder)</h3>
+  <p>This is a placeholder and currently does not do anything. It's where you could later implement money transfer between users.</p>
+
+  <h3>9. <code>logoff()</code> Function</h3>
+  <p>
+    Logs the user out, saves the balances to a file, and refreshes the page. Refreshing resets global variables and clears the session.
+  </p>
+
+  <ul>
+    <li><code>alert()</code>: Displays a confirmation message.</li>
+    <li><code>saveUpdatedBalances(balances)</code>: Saves the current state of balances to a downloadable file.</li>
+    <li><code>location.reload()</code>: Resets the app by reloading the page.</li>
+  </ul>
+
+  <h3>Summary of Key JSON Concepts</h3>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>fetch('file.json')</code></td>
+        <td>Loads JSON data from a local or remote file.</td>
+      </tr>
+      <tr>
+        <td><code>response.json()</code></td>
+        <td>Parses the response into JavaScript objects.</td>
+      </tr>
+      <tr>
+        <td><code>Array.forEach()</code></td>
+        <td>Iterates over all entries in the JSON array.</td>
+      </tr>
+      <tr>
+        <td><code>Array.find()</code></td>
+        <td>Returns the first matching item in an array (used for finding the user).</td>
+      </tr>
+      <tr>
+        <td><code>Array.some()</code></td>
+        <td>Returns <code>true</code> if any entry matches a condition (used for login check).</td>
+      </tr>
+      <tr>
+        <td><code>JSON.stringify()</code></td>
+        <td>Turns a JavaScript object or array back into a JSON string.</td>
+      </tr>
+      <tr>
+        <td><code>Blob</code></td>
+        <td>Creates a downloadable file from a string.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<br>
+----------------
+<br>
+
+<section>
+  <h2>🧠 Notes & Ideas: JSON vs Node.js + MySQL</h2>
+
+  <h3>✅ Benefits of Using Node.js with MySQL</h3>
+  <ul>
+    <li><strong>Security:</strong> Passwords can be encrypted (e.g., bcrypt), and you avoid exposing data via public JSON files.</li>
+    <li><strong>Scalability:</strong> Works better as your number of users grows. MySQL is designed for large datasets and fast queries.</li>
+    <li><strong>Real-time updates:</strong> Changes are written directly to the database. No need to download/upload entire JSON files.</li>
+    <li><strong>Data integrity:</strong> MySQL supports transactions, constraints, and relations between data tables.</li>
+    <li><strong>Multi-user access:</strong> Safe to use in a shared environment. JSON is just a file — it doesn’t handle concurrency well.</li>
+  </ul>
+
+  <h3>🔄 How Would Your ATM Simulator Work with Node.js + MySQL?</h3>
+  <ol>
+    <li><strong>Frontend (HTML/JS)</strong> sends login or transaction data to a <strong>Node.js server</strong> via <code>fetch()</code> or <code>axios</code>.</li>
+    <li><strong>Node.js backend</strong> processes the request and talks to a <strong>MySQL database</strong> using a library like <code>mysql2</code> or <code>sequelize</code>.</li>
+    <li>The server returns a result (e.g., balance or login success) as JSON to your browser.</li>
+  </ol>
+
+  <h4>🖼 Example Architecture:</h4>
+  <pre><code>[HTML + JS Frontend]
+        ⇅ HTTP
+[Node.js Server (Express)]
+        ⇅ SQL
+[MySQL Database]</code></pre>
+
+  <h3>🧾 Alternatives to JSON Files</h3>
+  <table border="1" cellpadding="6">
+    <thead>
+      <tr>
+        <th>Alternative</th>
+        <th>Use Case</th>
+        <th>Pros</th>
+        <th>Cons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>MySQL / MariaDB</strong></td>
+        <td>Structured data with relationships (e.g., users, balances)</td>
+        <td>Powerful, scalable, reliable</td>
+        <td>Requires setup & backend logic</td>
+      </tr>
+      <tr>
+        <td><strong>SQLite</strong></td>
+        <td>Lightweight DB for small apps</td>
+        <td>Simple to use, no server needed</td>
+        <td>Not good for concurrent users</td>
+      </tr>
+      <tr>
+        <td><strong>MongoDB (NoSQL)</strong></td>
+        <td>Flexible schema (JSON-like)</td>
+        <td>Scalable, good for unstructured data</td>
+        <td>Can be overkill for simple projects</td>
+      </tr>
+      <tr>
+        <td><strong>LocalStorage / IndexedDB</strong></td>
+        <td>Storing small data in browser</td>
+        <td>No backend required</td>
+        <td>Not secure, not sharable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>💭 When to Use JSON</h3>
+  <ul>
+    <li>When you're learning and want to avoid setting up a backend</li>
+    <li>For very small apps with no user concurrency</li>
+    <li>To prototype ideas before moving to real databases</li>
+  </ul>
+
+  <h3>🧰 When to Switch to Node.js + Database</h3>
+  <ul>
+    <li>If you want to store data securely</li>
+    <li>If you plan to publish your ATM simulator online</li>
+    <li>If you want to learn full-stack development (highly recommended!)</li>
+  </ul>
+
+  <h3>🛠 Tools You'll Need</h3>
+  <ul>
+    <li><strong>Node.js</strong> – for server-side scripting</li>
+    <li><strong>Express</strong> – to build a server easily</li>
+    <li><strong>MySQL / MariaDB</strong> – database engine</li>
+    <li><strong>mysql2 or sequelize</strong> – library to connect Node.js to the database</li>
+    <li><strong>Postman</strong> – for testing your API calls</li>
+  </ul>
+
+  <h3>📘 Want a Guide?</h3>
+  <p>I can help you migrate your ATM simulator to Node.js + MySQL step-by-step, with real user login, encrypted passwords, and database transactions.</p>
+</section>
+
+
+
+
+<hr>
+
+<footer>
+All text typed by me with a little help from ChatGPT &copy 2025 Gilbert Sammut
+</footer>
+
+
+</body>
+</html>

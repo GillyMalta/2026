@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: #c2e2ee;
+    font-family: 'Khand';
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: solid royalblue 2px;
+}
+
+header a {
+    font-size: 2rem;
+    list-style: none;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+hr {
+    border: solid royalblue 1px;
+    padding: 0.5rem 0 0.5rem 0;
+    border-radius: 0.5rem;
+}
+
+h2 {
+    color: red;
+}
+
+#three_Columns {
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    gap: 0.5rem;
+}
+
+#buttonsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+[class^="column"] {
+    border: solid black 1px;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+[id^="slot"] {
+    font-size: 5rem;
+    border-radius: 0.5rem;
+    transition: ease 0.3s;
+}
+
+[id^="slot"]:hover {
+    font-size: 4rem;
+    transform: scale(1.02);
+    letter-spacing: 10px;
+    background-color: black;
+    color: red;
+    font-weight: bolder;
+    align-self: center;
+}
+
+.blink {
+    animation: blink 2s steps(1) infinite;
+}
+
+@keyframes blink {
+    50%     { opacity: 50%;}
+}
+
+#spinIt,
+#cashOut {
+    font-family: 'Khand';
+    background-color: royalblue;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 6rem;
+    height: 197px;
+    font-size: 5rem;
+    transition: ease 0.2s;
+}
+
+#SpinIt:hover {
+    background-color: red;
+}
+
+.hidden {
+    background-color: #C2E2EE;
+    border: none;
+}
+
+.credits {
+    border: solid black 1px;
+    border-radius: 197px;
+    text-align: center;
+    background-color: royalblue;
+    height: 197px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.credits h2 {
+    font-size: 5rem;
+}
+
+#gameCredits {
+    margin: 0;
+}
+
+.redBold {
+    color: red;
+    font-weight: bold;
+}
+
+.blueBold {
+    color: blue;
+    font-weight: bold;
+}
+
+.redBlack {
+    color: black;
+    background-color: red;
+    font-weight: bold;
+}
+
+.gold {
+    color: goldenrod;
+    font-weight: bold;
+}
+
+.tables {
+    table-layout: fixed;
+    width: 100%;
+}
+
+td {
+    font-size: 2rem;
+    text-align: center;
+    background-color: black;
+    color: red;
+}
+
+/* MODALS TESTING */
+dialog {
+    border: none;
+    border-radius: 10px;
+    background: black;
+    color: red;
+    font-size: 5rem;
+    align-items: center;
+    text-align: center;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+dialog p {
+    font-size: 4rem;
+}
+

@@ -1,0 +1,14 @@
+[
+    {
+      "user": "first",
+      "message": "Welcome!"
+    },
+    {
+      "user": "second",
+      "message": "ATTENTION - Contact the bank"
+    },
+    {
+      "user": "third",
+      "message": "YOU HAVE LOST YOUR MONEY"
+    }
+]

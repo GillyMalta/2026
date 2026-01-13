@@ -1,0 +1,97 @@
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Nixie+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap');
+
+body {
+	background-color: #E5EDFF;
+	font-family: Nixie One;
+	max-width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+h1, h2 {
+	color: #4C696D;
+}
+
+#dateToday {
+	font-size: 10px;
+	color: #4C696D;
+}
+
+p {
+	font-size: 20px;
+}
+
+button {
+	font-family: Nixie One;
+	font-size: 15px;
+	text-transform: capitalize;
+	border-radius: 8px;
+	border: solid #4C696D;
+	color: #E5EDFF;
+	font-weight: bold;
+	width: 145px;
+	background-color: #4C696D;
+	letter-spacing: 5px;
+}
+
+button:hover {
+	transform: scale(0.9);
+	border: solid #4C696D;
+	color: black;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#working_area {
+	width: 96%;
+	height: 200px;
+	border: solid #4C696D;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	font-family: calibri light;
+	background-color: #4C696D;
+	color: #E5EDFF;
+}
+
+#welcome {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.logins {
+	font-family: Nixie One;
+	font-size: 15px;
+	text-transform: capitalize;
+	border-radius: 8px;
+	border: solid #4C696D;
+	color: #4C696D;
+	font-weight: bold;
+	width: 150px;
+	height: 20px;
+	background-color: #E5EDFF;
+}
+
+#send_it {
+	margin-left: 100px;
+	width: 160px;
+}
+
+#username {
+	margin-left: 10px;
+	width: 150px;
+}
+
+#password {
+	margin-left: 14px;
+	width: 150px;
+}
+
+#welcome {
+	text-transform: capitalize;
+}
+
+footer {
+	font-size: 10px;
+}
