@@ -274,7 +274,7 @@ input::placeholder {
 
 #disclaimer {
     height: var(--std_VH_10);
-    margin: 0 var(--std_Ten_Rem);
+    margin: 0 var(--std_VH_30);
 }
 
 #copyright {
