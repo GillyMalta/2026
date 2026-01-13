@@ -32,7 +32,8 @@
     flex: 1;
     overflow: hidden;
     border-radius: 0.5rem;
-    transition: all 5s;
+    /* transition: all 5s; */
+    transition: ease-in-out 5s;
     /* background-color: #649cbe; */
     border: solid lightgray 1px;
     display: flex;
