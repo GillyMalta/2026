@@ -54,6 +54,7 @@
     --std_VH_15:                    15vh;
     --std_VH_20:                    20vh;
     --std_VH_30:                    30vh;
+    --std_VH_45:                    45vh;
 }
 
 /* ____________________________________________________________________ */
@@ -273,7 +274,7 @@ input::placeholder {
 }
 
 #disclaimer {
-    height: var(--std_VH_30);
+    height: var(--std_VH_45);
     margin: 0 var(--std_Ten_Rem);
 }
 
