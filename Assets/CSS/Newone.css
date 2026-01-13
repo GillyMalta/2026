@@ -70,7 +70,7 @@ html {
 
 body {
     background-color: var(--std_Colour_F5F7FA);
-    cursor: url("../../Assets/Images/vlegga.png") 0 0, auto;
+    cursor: url("../Assets/Images/vlegga.png") 0 0, auto;
 }
 
 h1,
