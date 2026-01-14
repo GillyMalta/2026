@@ -275,8 +275,8 @@ input::placeholder {
 }
 
 #disclaimer {
-    height: var(--std_VH_46);
-    margin: 0 var(--std_Ten_Rem);
+    height: var(--std_VH_45);
+    margin: 0;
 }
 
 #copyright {
