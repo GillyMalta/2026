@@ -47,6 +47,7 @@
     --std_Fifteen_Rem:              15rem;
     --std_Forty_Rem:                40rem;
     --std_FortyOne_Rem:             41rem;
+    --std_FortyThree_Rem:           43rem;
     --std_Sixtyfive_Rem:            65rem;
 
     --std_Time_Halfsec:             0.5s;
@@ -196,7 +197,7 @@ nav a {
 }
 
 header {
-    height: var(--std_FortyOne_Rem);
+    height: var(--std_FortyThree_Rem);
     transition: ease-in 0.5s;
 
     /* background: linear-gradient(
