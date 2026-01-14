@@ -45,6 +45,8 @@
     --std_Six_Rem:                  6.0rem;
     --std_Ten_Rem:                  10rem;
     --std_Fifteen_Rem:              15rem;
+    --std_Forty_Rem:               40rem;
+    --std_Sixtyfive_Rem:            65rem;
 
     --std_Time_Halfsec:             0.5s;
     --std_Time_Onesec:              1.0s;
@@ -197,7 +199,7 @@ header {
 }
 
 header {
-    height: var(--std_VH_30);
+    height: var(--std_Forty_Rem);
 
     /* background: linear-gradient(
         to left,
