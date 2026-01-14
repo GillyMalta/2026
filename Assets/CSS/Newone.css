@@ -262,6 +262,10 @@ label {
     text-align: end;
 }
 
+button {
+    grid-column: 2;
+}
+
 input::placeholder {
     font-style: italic;
     color: var(--std_Colour_Black);
