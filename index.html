@@ -189,7 +189,7 @@
 
     </div> <!-- Closing #socialMediaContainer-->
     
-    <form>
+    <!-- <form>
         <h2>form</h2>
 
             <label for="name">Name :</label>
@@ -207,7 +207,34 @@
             </select>
 
             <input type="button" id="sendIt" title="SendIt" value="Send It!">
-    </form>
+    </form> -->
+
+        <form id="contact-form">
+
+            <h2>Contact me!</h2>
+
+            <label class="required" for="name">Name and Surname :</label>
+            <input id="name" type="text" name="name" placeholder="Gilbert Sammut" required autocomplete="off">
+
+            <label class="required" for="email">Email Address :</label>
+            <input id="email" type="email" name="email" placeholder="gilbert@79297110.com" required autocomplete="off">
+
+            <label class="required" for="phone">Phone Number :</label>
+            <input id="phone" type="tel" name="phone" placeholder="+356 79297110" required autocomplete="off">
+
+            <label for="help">How can I help you? </label>
+            <select id="help" name="help">
+                <option value="Collaboration">Collaboration</option>
+                <option value="More Information">More Information</option>
+                <option value="Content Removal">Content Removal</option>
+                <option value="callback">Callback</option>
+            </select>
+
+            <label for="message">Want to add a comment?</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button id="sendit" type="submit">Send It!</button>
+        </form>
 
 </footer>
 
@@ -239,6 +266,8 @@
 </div> <!-- Closing Copyright-->
 
 <script src="/2026/Scripts/Slideshow.JS"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"> </script>
+<script src="Scripts/email.JS"></script>
 
 </body>
 </html>
