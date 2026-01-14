@@ -45,7 +45,8 @@
     --std_Six_Rem:                  6.0rem;
     --std_Ten_Rem:                  10rem;
     --std_Fifteen_Rem:              15rem;
-    --std_Forty_Rem:               40rem;
+    --std_Forty_Rem:                40rem;
+    --std_FortyOne_Rem:             41rem;
     --std_Sixtyfive_Rem:            65rem;
 
     --std_Time_Halfsec:             0.5s;
@@ -195,11 +196,8 @@ nav a {
 }
 
 header {
+    height: var(--std_FortyOne_Rem);
     transition: ease-in 0.5s;
-}
-
-header {
-    height: var(--std_Forty_Rem);
 
     /* background: linear-gradient(
         to left,
@@ -223,6 +221,10 @@ header {
         #f7f7f7 70%,
         red 100%
     );
+}
+
+#output {
+    font-size: var(--std_Two_Rem);
 }
 
 #slideshowContainer {
