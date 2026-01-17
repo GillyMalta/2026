@@ -293,6 +293,10 @@ main {
     grid-template-columns: 20% auto;
 }
 
+aside img {
+    width: 100%;
+}
+
 footer {
     display: grid;
     grid-template-columns: 30% 30% auto;
