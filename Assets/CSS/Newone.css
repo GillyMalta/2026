@@ -113,7 +113,7 @@ p {
 }
 
 .images {
-    width: 100%;
+    width: 50%;
     border-radius: var(--std_Half_Rem);
 }
 
