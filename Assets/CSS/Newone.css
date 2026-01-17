@@ -117,6 +117,10 @@ p {
     border-radius: var(--std_Half_Rem);
 }
 
+.free {
+    background-color: var(--std_Colour_F5F7FA);
+}
+
 /* ____________________________________________________________________ */
 
 /* GROUPINGS */
