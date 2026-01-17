@@ -295,6 +295,7 @@ main {
 
 aside img {
     width: 100%;
+    border-radius: var(--std_Half_Rem);
 }
 
 footer {
