@@ -314,6 +314,7 @@ header {
     height: var(--std_ThirtyEight_Rem);
     transition: ease-in 0.5s;
     margin: 0 var(--std_Ten_Rem);
+    padding: var(--std_One_Rem);
 
     /* background: linear-gradient(
         to left,
