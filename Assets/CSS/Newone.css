@@ -41,6 +41,7 @@
     --std_Quarter_Rem:              0.25rem;
     --std_Half_Rem:                 0.5rem;
     --std_One_Rem:                  1.0rem;
+    --std_OneHalf_Rem:              1.5rem;
     --std_Two_Rem:                  2.0rem;
     --std_Six_Rem:                  6.0rem;
     --std_Ten_Rem:                  10rem;
@@ -184,10 +185,10 @@ select {
     top: 50%;
     z-index: 1000;
     transform: translateY(-50%);
-    gap: 1rem;
-    border: solid lightgray 1px;
-    padding: 1rem;
-    border-radius: 1rem;
+    gap: var(--std_One_Rem);
+    border: solid var(--std_Colour_Lightgrey) 1px;
+    padding: var(--std_One_Rem);
+    border-radius: var(--std_One_Rem);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: min-content;
     height: auto;
@@ -195,7 +196,7 @@ select {
 }
 
 .leftSideMenu img {
-    width: 1.5rem;
+    width: var(--std_OneHalf_Rem);
     opacity: 0.2;
     transition: ease 1s;
 }
@@ -216,10 +217,10 @@ select {
     top: 50%;
     z-index: 1000;
     transform: translateY(-50%);
-    gap: 1rem;
-    border: solid lightgray 1px;
-    padding: 1rem;
-    border-radius: 1rem;
+    gap: var(--std_One_Rem);
+    border: solid var(--std_Colour_Lightgrey) 1px;
+    padding: var(--std_One_Rem);
+    border-radius: var(--std_One_Rem);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: min-content;
     height: auto;
@@ -227,7 +228,7 @@ select {
 }
 
 .rightSideMenu img {
-    width: 1.5rem;
+    width: var(--std_OneHalf_Rem);
     opacity: 0.2;
     transition: ease 1s;
 }
@@ -274,13 +275,13 @@ nav a {
 
 #contacts {
     margin: 0 var(--std_Ten_Rem);
-    margin-top: 0.5rem;
+    margin-top: var(--std_Half_Rem);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
 [class^="column"] {
-    padding: 1rem;
+    padding: var(--std_One_Rem);
     transition: ease-in 1s;
     text-align: center;
 }
