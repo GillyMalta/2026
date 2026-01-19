@@ -207,6 +207,38 @@ select {
 
 /* ____________________________________________________________________ */
 
+/* RIGHT SIDE MENU */
+
+.rightSideMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    z-index: 1000;
+    transform: translateY(-50%);
+    gap: 1rem;
+    border: solid lightgray 1px;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: min-content;
+    height: auto;
+    right: -6.5rem;
+}
+
+.rightSideMenu img {
+    width: 1.5rem;
+    opacity: 0.2;
+    transition: ease 1s;
+}
+
+.rightSideMenu a:hover img {
+    opacity: 1.5;
+    transform: scale(1.1);
+}
+
+/* ____________________________________________________________________ */
+
 /* SEMANTICS */
 
 nav {
