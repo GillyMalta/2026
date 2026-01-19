@@ -89,11 +89,11 @@ h2 {
 
 h3 {
     margin: 0;
-    color: royalblue;
+    color: var(--std_Colour_Royalblue);
 }
 
 hr {
-    border: solid royalblue 1px;
+    border: solid var(--std_Colour_Royalblue) 1px;
     padding: 0 var(--std_Half_Rem);
 }
 
@@ -155,7 +155,7 @@ footer,
 #socialMediaContainer,
 #disclaimer,
 form {
-    border: solid lightgray 1px;
+    border: solid var(--std_Colour_Lightgrey) 1px;
 }
 
 label,
@@ -295,8 +295,8 @@ nav a {
 
 .column2 {
     grid-column: 2;
-    border-left: solid royalblue 5px;
-    border-right: solid royalblue 5px;
+    border-left: solid var(--std_Colour_Royalblue) 5px;
+    border-right: solid var(--std_Colour_Royalblue) 5px;
 }
 
 .column3 {
