@@ -175,6 +175,46 @@ select {
 
 /* ____________________________________________________________________ */
 
+/* LEFT SIDE MENU */
+
+.leftSideMenu,
+.rightSideMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    z-index: 1000;
+    transform: translateY(-50%);
+    gap: 1rem;
+    border: solid lightgray 1px;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.leftSideMenu {
+    left: 3.5rem;
+}
+
+.rightSideMenu {
+    right: 3.5rem
+}
+
+.leftSideMenu img,
+.rightSideMenu img {
+    width: 1.5rem;
+    opacity: 0.2;
+    transition: ease 1s;
+}
+
+.leftSideMenu a:hover img,
+.rightSideMenu a:hover img {
+    opacity: 1.5;
+    transform: scale(1.1);
+}
+
+/* ____________________________________________________________________ */
+
 /* SEMANTICS */
 
 nav {
