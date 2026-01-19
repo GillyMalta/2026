@@ -190,10 +190,8 @@ select {
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: min-content;
-}
-
-.leftSideMenu {
-    left: -9.5rem;
+    height: auto;
+    left: -6.5rem;
 }
 
 .leftSideMenu img {
