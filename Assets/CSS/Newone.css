@@ -223,8 +223,6 @@ select {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     width: min-content;
     height: auto;
-    width: min-content;
-    height: auto;
     right: -6.5rem;
 }
 
