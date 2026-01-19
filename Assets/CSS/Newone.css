@@ -198,7 +198,7 @@ select {
 .leftSideMenu img {
     width: var(--std_OneHalf_Rem);
     opacity: 0.2;
-    transition: ease 1s;
+    transition: ease var(--std_Time_Onesec);
 }
 
 .leftSideMenu a:hover img {
@@ -230,7 +230,7 @@ select {
 .rightSideMenu img {
     width: var(--std_OneHalf_Rem);
     opacity: 0.2;
-    transition: ease 1s;
+    transition: ease var(--std_Time_Onesec);
 }
 
 .rightSideMenu a:hover img {
@@ -282,7 +282,7 @@ nav a {
 
 [class^="column"] {
     padding: var(--std_One_Rem);
-    transition: ease-in 1s;
+    transition: ease-in var(--std_Time_Onesec);
     text-align: center;
 }
 [class^="column"]:hover {
