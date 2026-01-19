@@ -177,8 +177,7 @@ select {
 
 /* LEFT SIDE MENU */
 
-.leftSideMenu,
-.rightSideMenu {
+.leftSideMenu {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -196,19 +195,13 @@ select {
     left: 3.5rem;
 }
 
-.rightSideMenu {
-    right: 3.5rem
-}
-
-.leftSideMenu img,
-.rightSideMenu img {
+.leftSideMenu img {
     width: 1.5rem;
     opacity: 0.2;
     transition: ease 1s;
 }
 
-.leftSideMenu a:hover img,
-.rightSideMenu a:hover img {
+.leftSideMenu a:hover img {
     opacity: 1.5;
     transform: scale(1.1);
 }
