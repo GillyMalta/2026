@@ -192,7 +192,7 @@ select {
 }
 
 .leftSideMenu {
-    left: 3.5rem;
+    left: -9.5rem;
 }
 
 .leftSideMenu img {
@@ -282,6 +282,7 @@ nav a {
 header {
     height: var(--std_ThirtyEight_Rem);
     transition: ease-in 0.5s;
+    margin: 0 var(--std_Ten_Rem);
 
     /* background: linear-gradient(
         to left,
