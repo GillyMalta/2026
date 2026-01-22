@@ -418,7 +418,7 @@ input::placeholder {
     margin: 0;
     margin: 0 var(--std_Ten_Rem);
     text-align: center;
-    font-size: 4px;
+    font-size: 8px;
 }
 
 #copyright {
