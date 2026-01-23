@@ -425,6 +425,34 @@ input::placeholder {
     font-size: var(--std_One_Rem);
 }
 
+dialog {
+    margin: auto;
+    width: fit-content;
+    overflow: hidden;
+    border: solid black 1px;
+    position: relative;
+    text-align: center;
+    background-color:#F5F7F1;
+}
+
+dialog p {
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+}
+
+button {
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    font-size: 1rem;
+    border: none;
+    background-color: white;
+    position: absolute;
+    background-color:#C2E2EE;
+}
+
+
+
 /* ____________________________________________________________________ */
 
 /* Mobile Views */
