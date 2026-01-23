@@ -440,7 +440,7 @@ dialog p {
     margin: 0.5rem 0 0 0;
 }
 
-button {
+dialog button {
     top: 0;
     left: 0;
     z-index: 1000;
